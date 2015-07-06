@@ -149,7 +149,6 @@ DEPENDENCIES
   faraday (~> 0.9.1)
   jbuilder (~> 2.0)
   jquery-rails
-  minitest (~> 5.7.0)
   pg
   rails (= 4.2.2)
   sass-rails (~> 5.0)
