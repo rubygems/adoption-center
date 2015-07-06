@@ -3,42 +3,60 @@
 	{
 		"selected_items":
 		[
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"back",
+				"background-color"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/Users/linatorres/Documents/Team-Binary-2015/Gemfile",
+			"file": "/Users/linatorres/Documents/Team-Binary-2015/app/assets/stylesheets/style.css.erb",
 			"settings":
 			{
-				"buffer_size": 1475,
+				"buffer_size": 709,
+				"line_ending": "Unix",
+				"name": "nav {}"
+			}
+		},
+		{
+			"file": "/Users/linatorres/Documents/Team-Binary-2015/app/views/site/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 415,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/linatorres/Documents/Team-Binary-2015/Gemfile.lock",
+			"file": "/Users/linatorres/Documents/Team-Binary-2015/app/views/layouts/application.html.erb",
 			"settings":
 			{
-				"buffer_size": 3817,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/linatorres/Documents/Team-Binary-2015/config/database.yml",
-			"settings":
-			{
-				"buffer_size": 2969,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "class SiteController < ApplicationController\n	\nend\n",
-			"file": "site_controller.rb",
-			"file_size": 49,
-			"file_write_time": 1435891685000000,
-			"settings":
-			{
-				"buffer_size": 51,
+				"buffer_size": 901,
 				"line_ending": "Unix"
 			}
 		}
@@ -67,6 +85,13 @@
 	},
 	"file_history":
 	[
+		"/Users/linatorres/Documents/Team-Binary-2015/app/views/layouts/application.html.erb",
+		"/Users/linatorres/Documents/Team-Binary-2015/config/routes.rb",
+		"/Users/linatorres/Documents/Team-Binary-2015/app/views/site/index.html.erb",
+		"/Users/linatorres/Documents/Team-Binary-2015/app/controllers/site_controller.rb",
+		"/Users/linatorres/Documents/Team-Binary-2015/config/database.yml",
+		"/Users/linatorres/Documents/Team-Binary-2015/Gemfile.lock",
+		"/Users/linatorres/Documents/Team-Binary-2015/Gemfile"
 	],
 	"find":
 	{
@@ -101,60 +126,57 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/linatorres/Documents/Team-Binary-2015/Gemfile",
+					"file": "/Users/linatorres/Documents/Team-Binary-2015/app/assets/stylesheets/style.css.erb",
 					"settings":
 					{
-						"buffer_size": 1475,
+						"buffer_size": 709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1198,
-								1198
+								709,
+								709
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"auto_name": "nav {}",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 266.0,
+						"translation.y": 29.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/linatorres/Documents/Team-Binary-2015/Gemfile.lock",
+					"file": "/Users/linatorres/Documents/Team-Binary-2015/app/views/site/index.html.erb",
 					"settings":
 					{
-						"buffer_size": 3817,
+						"buffer_size": 415,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							],
-							[
-								461,
-								461
+								66,
+								66
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -164,51 +186,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/linatorres/Documents/Team-Binary-2015/config/database.yml",
+					"file": "/Users/linatorres/Documents/Team-Binary-2015/app/views/layouts/application.html.erb",
 					"settings":
 					{
-						"buffer_size": 2969,
+						"buffer_size": 901,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								857,
+								857
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "site_controller.rb",
-					"settings":
-					{
-						"buffer_size": 51,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								46,
-								46
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -275,6 +271,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 289.0,
 	"status_bar_visible": true
 }
