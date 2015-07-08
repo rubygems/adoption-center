@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AdoptionCenter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en-us">
+  <head>
+    <title>RubyGems AdoptionCenter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><%= link_to 'Home', root_path %></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><%= link_to 'Sign in', sign_in_path %></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">RubyGems Adoption Center</h3>
+      </div>
 
-<%= yield %>
+      <%= yield %>
 
-</body>
+    </div>
+  </body>
 </html>
