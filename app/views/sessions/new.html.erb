@@ -1,0 +1,15 @@
+<% provide(:title, "Log in") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <%= form_for(:session, url: sign_in_path) do |f| %>
+
+      <p><%= f.text_field :username, class: 'form-control', :placeholder => "Username" %></p>
+      <p><%= f.password_field :password, class: 'form-control', :placeholder => "Password" %></p>
+
+      <p><input type="checkbox" value="remember-me"> Remember me</p>
+
+      <p><%= f.submit "Sign in", class: "btn btn-primary" %></p>
+    <% end %>
+  </div>
+</div>
