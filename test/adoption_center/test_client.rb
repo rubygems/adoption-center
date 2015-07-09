@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require '../lib/client'
+require '../../lib/adoption_center/client'
 include Client
 
 # Test for the module Client

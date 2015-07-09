@@ -7,7 +7,11 @@ module Client
     connection = Faraday.new 'https://rubygems.org/api/v1/api_key.json'
     connection.basic_auth(user, password)
     response = connection.get
-    JSON.parse(response.body)['rubygems_api_key']
+    if response.body == "HTTP Basic: Access denied.\n"
+      nil
+    else
+      JSON.parse(response.body)['rubygems_api_key']
+    end
   end
 
   def gems(token)
