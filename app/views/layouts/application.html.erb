@@ -14,12 +14,18 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><%= link_to 'Home', root_path %></li>
             <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><%= link_to 'Sign in', sign_in_path %></li>
+            <% if current_user %>
+              <li role="presentation"><%= link_to "Sign out", sign_out_path, :method => :delete %></li>
+            <% else %>
+              <li role="presentation"><%= link_to 'Sign in', sign_in_path %></li>
+            <% end %>
           </ul>
         </nav>
         <h3 class="text-muted">RubyGems Adoption Center</h3>
       </div>
-
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+      <% end %>
       <%= yield %>
 
     </div>
