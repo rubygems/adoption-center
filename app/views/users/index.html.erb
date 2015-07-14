@@ -1,5 +1,27 @@
-<h1>Api key user</h1>
-<p><%= @api_key_user %></p>
-<% unless @gems.present? %>
-	<p>0 gemas</p>
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>Hello, <%= current_user.username%></h1></div>
+  <div class="panel-body">
+    <p>Your Rubygems list.</p>
+  </div>
+<table class="table">
+	<tr>
+    <th>Name</th>
+    <th>Version</th>
+    <th>Downloads</th>
+    <th>Info</th>
+    <th>Homepage</th>
+    <th>Platforms</th>
+  </tr>
+ 
+<% @gems.each do |g| %>
+  <tr>
+    <td><%= g["name"] %></td>
+    <td><%= g["version"] %></td>
+    <td><%= g["downloads"] %></td>
+    <td><%= g["info"] %></td>
+    <td><%= link_to 'Homepage', g["homepage_uri"], target: "_blank" %></td>
+    <td><%= g["platform"] %></td>
+  </tr>
 <% end %>
+</table>
+</div>
