@@ -6,3 +6,6 @@
 !/log/.keep
 /tmp
 .DS_Store
+
+# Ignore database config
+config/database.yml
