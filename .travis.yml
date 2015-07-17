@@ -1,0 +1,13 @@
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.2.2
+  - ruby-head
+
+before_script:
+  - cp config/database.example.yml config/database.yml
+  - bundle exec rake db:create db:migrate db:test:prepare
+
+script:
+  - bundle exec rake
