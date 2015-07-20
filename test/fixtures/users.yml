@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+angela:
+  username: angela4713
+  token: <%= SecureRandom.hex(8) %>
+  email: angela4713@gmail.com
