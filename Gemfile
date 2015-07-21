@@ -10,7 +10,7 @@ end
 group :test do
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
-end
+ends
 
 # Assets
 gem 'bootstrap-sass', '~> 3.3.5'
