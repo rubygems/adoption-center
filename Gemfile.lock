@@ -170,10 +170,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-=======
   bootstrap-sass (~> 3.3.5)
->>>>>>> Landing page
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
