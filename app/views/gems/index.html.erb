@@ -8,14 +8,14 @@
     <thead>
       <tr>
         <th>Gem</th>
-        <th>Description</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @gems.each do |g| %>
         <tr>
           <td><%= g['name'] %></td>
-          <td><%= g['info'] %></td>
+          <td><%= link_to 'Show', gem_path(id: g['name']) %></td>
         </tr>
       <% end %>
   </tbody>

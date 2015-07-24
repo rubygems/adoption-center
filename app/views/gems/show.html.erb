@@ -1,0 +1,31 @@
+<% provide(:title, "Information Gem") %>
+<div id='gem_name'>
+  <strong>Gem:</strong>
+  <%= @gem['name'] %>
+</div>
+
+<div>
+  <strong>Version:</strong>
+  <%= @gem['version'] %>
+</div>
+
+<div id='gem_description'>
+  <strong>Description:</strong>
+  <%= @gem['info'] %>
+</div>
+
+<div>
+  <strong>Authors:</strong>
+  <%= @gem['authors'] %>
+</div>
+
+<div>
+  <strong>Owners:</strong>
+  <% @gem_owners.each do |go| %>
+    <li><%= go['handle'] %></li>
+  <% end %>
+</div>
+
+<p><%= button_to "Put for adoption" %></p>
+
+<p><%= link_to 'Back', gems_path %></p>

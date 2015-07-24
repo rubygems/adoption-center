@@ -1,0 +1,241 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - rubygems.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 24 Jul 2015 14:48:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0628914e-e0cc-4c45-8df5-50aad32e2c98
+      X-Runtime:
+      - '0.017706'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"rails","downloads":51281032,"version":"4.2.3","version_downloads":219917,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Ruby on Rails is a full-stack web framework optimized
+        for programmer happiness and sustainable productivity. It encourages beautiful
+        code by favoring convention over configuration.","licenses":["MIT"],"metadata":{},"sha":"6a19b32cf92ac3585c2effbf5356642e84349abf55ee82827313ec3c7ce34870","project_uri":"http://rubygems.org/gems/rails","gem_uri":"http://rubygems.org/gems/rails-4.2.3.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":"http://wiki.rubyonrails.org","documentation_uri":"http://api.rubyonrails.org","mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk","source_code_uri":"http://github.com/rails/rails","bug_tracker_uri":"http://github.com/rails/rails/issues","dependencies":{"development":[],"runtime":[{"name":"actionmailer","requirements":"=
+        4.2.3"},{"name":"actionpack","requirements":"= 4.2.3"},{"name":"actionview","requirements":"=
+        4.2.3"},{"name":"activejob","requirements":"= 4.2.3"},{"name":"activemodel","requirements":"=
+        4.2.3"},{"name":"activerecord","requirements":"= 4.2.3"},{"name":"activesupport","requirements":"=
+        4.2.3"},{"name":"bundler","requirements":"\u003c 2.0, \u003e= 1.3.0"},{"name":"railties","requirements":"=
+        4.2.3"},{"name":"sprockets-rails","requirements":"\u003e= 0"}]}}'
+    http_version:
+  recorded_at: Fri, 24 Jul 2015 14:48:16 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.yaml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Gems 0.8.3
+      - Ruby
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '30'
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 24 Jul 2015 16:13:53 GMT
+      Content-Type:
+      - text/yaml
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Disposition:
+      - attachment
+      Content-Transfer-Encoding:
+      - binary
+      Cache-Control:
+      - private
+      Etag:
+      - W/"4a0122819163f3f1233420c626cfe317"
+      X-Request-Id:
+      - 145248c6-8583-4f81-a434-6b7d6eec36dd
+      X-Runtime:
+      - '0.018406'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+    body:
+      encoding: UTF-8
+      string: |
+        ---
+        name: rails
+        downloads: 51284584
+        version: 4.2.3
+        version_downloads: 220584
+        platform: ruby
+        authors: David Heinemeier Hansson
+        info: Ruby on Rails is a full-stack web framework optimized for programmer happiness
+          and sustainable productivity. It encourages beautiful code by favoring convention
+          over configuration.
+        licenses:
+        - MIT
+        metadata: {}
+        sha: 6a19b32cf92ac3585c2effbf5356642e84349abf55ee82827313ec3c7ce34870
+        project_uri: http://rubygems.org/gems/rails
+        gem_uri: http://rubygems.org/gems/rails-4.2.3.gem
+        homepage_uri: http://www.rubyonrails.org
+        wiki_uri: http://wiki.rubyonrails.org
+        documentation_uri: http://api.rubyonrails.org
+        mailing_list_uri: http://groups.google.com/group/rubyonrails-talk
+        source_code_uri: http://github.com/rails/rails
+        bug_tracker_uri: http://github.com/rails/rails/issues
+        dependencies:
+          development: []
+          runtime:
+          - name: actionmailer
+            requirements: "= 4.2.3"
+          - name: actionpack
+            requirements: "= 4.2.3"
+          - name: actionview
+            requirements: "= 4.2.3"
+          - name: activejob
+            requirements: "= 4.2.3"
+          - name: activemodel
+            requirements: "= 4.2.3"
+          - name: activerecord
+            requirements: "= 4.2.3"
+          - name: activesupport
+            requirements: "= 4.2.3"
+          - name: bundler
+            requirements: "< 2.0, >= 1.3.0"
+          - name: railties
+            requirements: "= 4.2.3"
+          - name: sprockets-rails
+            requirements: ">= 0"
+    http_version:
+  recorded_at: Fri, 24 Jul 2015 16:13:53 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails/owners.yaml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Gems 0.8.3
+      - Ruby
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '30'
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 24 Jul 2015 16:13:58 GMT
+      Content-Type:
+      - text/yaml
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Disposition:
+      - attachment
+      Content-Transfer-Encoding:
+      - binary
+      Cache-Control:
+      - private
+      Etag:
+      - W/"6fe967375e9c90d7a937c74ade59724e"
+      X-Request-Id:
+      - c777aeb4-ebea-4834-97d8-30ad68b37a11
+      X-Runtime:
+      - '0.008263'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+    body:
+      encoding: UTF-8
+      string: "---\n- id: 939\n  handle: senny\n  email: yves.senn@gmail.com\n- id:
+        59702\n  handle: chancancode\n  email: godfreykfc@gmail.com\n- id: 662\n  handle:
+        pixeltrix\n  email: andyw@pixeltrix.co.uk\n- id: 337\n  handle: \n  email:
+        jeremy@bitsweat.net\n- id: 1550\n  handle: webster132\n  email: david@loudthinking.com\n-
+        id: 1614\n  handle: nzkoz\n  email: michael@koziarski.com\n- id: 32977\n  handle:
+        fxn\n  email: fxn@hashref.com\n- id: 2568\n  handle: josevalim\n  email: jose.valim@gmail.com\n-
+        id: 207\n  handle: aaronp\n  email: aaron.patterson@gmail.com\n- id: 840\n
+        \ handle: spastorino\n  email: santiago@wyeworks.com\n- id: 429\n  handle:
+        cantoniodasilva\n  email: carlosantoniodasilva@gmail.com\n- id: 43998\n  handle:
+        guilleiguaran\n  email: guilleiguaran@gmail.com\n- id: 47349\n  handle: rafaelfranca\n
+        \ email: rafaelmfranca@gmail.com\n"
+    http_version:
+  recorded_at: Fri, 24 Jul 2015 16:13:58 GMT
+recorded_with: VCR 2.9.3
