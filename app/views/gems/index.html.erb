@@ -1,1 +1,23 @@
 <% provide(:title, "My Gems") %>
+<h1>Dashboard</h1>
+
+<% if @gems.empty? %>
+  You haven't pushed any gems yet.
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Gem</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @gems.each do |g| %>
+        <tr>
+          <td><%= g['name'] %></td>
+          <td><%= g['info'] %></td>
+        </tr>
+      <% end %>
+  </tbody>
+  </table>
+<% end %>
