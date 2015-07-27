@@ -5,6 +5,14 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
     login_user(users(:angela))
   end
 
+  test "should get index" do
+    get :index
+
+    assert_template :index
+    assert_select "title", "Gems up for Adoption | RubyGems AdoptionCenter"
+    assert_response :success
+  end
+
   test "should get new" do
     get :new, id: 'rails'
 

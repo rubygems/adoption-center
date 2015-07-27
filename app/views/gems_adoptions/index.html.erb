@@ -1,0 +1,24 @@
+<% provide(:title, "Gems up for Adoption") %>
+<h1>Listing Gems for Adoption</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gem</th>
+      <th>Info</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gems_adoptions.each do |gems_adoption| %>
+      <tr>
+        <td><%= gems_adoption.gem %></td>
+        <td><%= gems_adoption.description %></td>
+        <td><%= link_to 'Show', gem_path(id: gems_adoption['gem']) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @gems_adoptions %>
+<%= page_entries_info @gems_adoptions %>

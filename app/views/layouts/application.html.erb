@@ -14,7 +14,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><%= link_to 'Home', root_path %></li>
-            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><%= link_to 'Gems', gems_adoptions_path %></li>
             <% if current_user %>
               <li role="presentation"><%= link_to "Sign out", signout_path %></li>
             <% else %>

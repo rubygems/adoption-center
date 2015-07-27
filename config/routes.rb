@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback'   => 'sessions#create', :as => :omniauth_callback
   get "/signout" => "sessions#destroy", :as => :signout
   resources :gems, only: [:index, :show]
-  resources :gems_adoptions, only: [:new, :create, :destroy]
+  resources :gems_adoptions, only: [:index, :new, :create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
