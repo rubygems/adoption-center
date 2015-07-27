@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "should not save article without token or username" do
+  test "should not save user without token or username" do
     user = User.new
     user.save
     assert_includes user.errors, :username

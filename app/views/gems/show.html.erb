@@ -26,6 +26,12 @@
   <% end %>
 </div>
 
-<p><%= button_to "Put for adoption" %></p>
+<p>
+  <% if @gem_adoption %>
+    <%= button_to 'Remove from adoption', @gem_adoption, method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <% else %>
+    <%= link_to 'Put for adoption', new_gems_adoption_path(id: @gem['name']), :class => "button" %>
+  <% end %>
+</p>
 
 <p><%= link_to 'Back', gems_path %></p>

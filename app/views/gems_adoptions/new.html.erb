@@ -1,0 +1,18 @@
+<% provide(:title, "Aditional Information") %>
+<h1><%= @gems_adoption.gem %></h1>
+<%= form_for @gems_adoption do |g| %>
+  <% if @gems_adoption.errors.any? %>
+    <div>
+      <p><%= pluralize(@gems_adoption.errors.count, "error") %> Prohibited this gem from being saved:</p>
+      <ul>
+        <% @gems_adoption.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= g.hidden_field :gem %>
+  <%= g.label :description, 'Aditional information' %>
+  <p><%= g.text_area :description %></p>
+  <p><%= g.submit "Confirm" %></p>
+<% end %>
