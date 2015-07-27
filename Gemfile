@@ -25,4 +25,5 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
 gem 'gems', '~> 0.8.3'
+gem 'kaminari', '~> 0.16.3'
 gem 'sdoc', '~> 0.4.0', group: :doc

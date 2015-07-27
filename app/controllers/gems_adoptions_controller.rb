@@ -1,5 +1,9 @@
 class GemsAdoptionsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:new, :create, :destroy]
+
+  def index
+    @gems_adoptions = GemsAdoption.order(gem: :asc).page(params[:page])
+  end
 
   def new
     @gems_adoption = GemsAdoption.new(gem: params[:id])
