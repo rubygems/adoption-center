@@ -13,8 +13,8 @@
   <tbody>
     <% @gems_adoptions.each do |gems_adoption| %>
       <tr>
-        <td><%= gems_adoption.gem %></td>
-        <td><%= gems_adoption.description %></td>
+        <td id='gem_name'><%= gems_adoption.gem %></td>
+        <td id='gem_info_adoption'><%= gems_adoption.description %></td>
         <td><%= link_to 'Show', gem_path(id: gems_adoption['gem']) %></td>
       </tr>
     <% end %>

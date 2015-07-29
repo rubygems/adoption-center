@@ -3,5 +3,5 @@
 pg:
   id: 1
   gem: pg
-  description: Pg is the Ruby interface to the PostgreSQL
+  description: Gem looking for a new maintainer
   user_id: 1
