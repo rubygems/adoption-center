@@ -10,6 +10,8 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
 
     assert_template :index
     assert_select "title", "Gems up for Adoption | RubyGems AdoptionCenter"
+    assert_select "#gem_name", "pg"
+    assert_select "#gem_info_adoption", "Gem looking for a new maintainer"
     assert_response :success
   end
 
