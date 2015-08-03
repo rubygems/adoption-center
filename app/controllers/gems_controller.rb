@@ -7,5 +7,6 @@ class GemsController < ApplicationController
   def show
     @gem = Gems.info(params[:id])
     @gem_owners = Gems.owners(params[:id])
+    @gem_adoption = GemsAdoption.find_by_gem(params[:id])
   end
 end
