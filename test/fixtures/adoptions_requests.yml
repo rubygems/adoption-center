@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+faraday:
+  gems_adoption_id: 1
+  user_id: 1
+  description: I want to adopt this gem
