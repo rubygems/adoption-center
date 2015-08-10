@@ -1,10 +1,10 @@
 require 'test_helper'
 
 class GemsAdoptionTest < ActiveSupport::TestCase
-  test "should not save gem without gem, description or user_id" do
-    g = GemsAdoption.new
-    g.save
-    assert_includes g.errors, :gem
-    assert_includes g.errors, :user_id
+  test "should not save gem without gem or user_id" do
+    gems_adoption = GemsAdoption.new
+    gems_adoption.save
+    assert_includes gems_adoption.errors, :gem
+    assert_includes gems_adoption.errors, :user_id
   end
 end

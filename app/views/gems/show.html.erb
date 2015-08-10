@@ -27,11 +27,20 @@
 </div>
 
 <p>
-  <% if @gem_adoption %>
-    <%= button_to 'Remove from adoption', @gem_adoption, method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <% if @gem_owners.find { |o| o['handle'] == current_user.username } %>
+    <% if @gem_adoption %>
+      <%= button_to 'Remove from adoption', @gem_adoption, method: :delete, data: { confirm: 'Are you sure?' }  %>
+    <% else %>
+      <%= link_to 'Put for adoption', new_gems_adoption_path(id: @gem['name']), :class => "button" %>
+    <% end %>
   <% else %>
-    <%= link_to 'Put for adoption', new_gems_adoption_path(id: @gem['name']), :class => "button" %>
+    <% if @gem_adoption && @adoption_request.nil? %>
+      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption['id']), :class => "button" %>
+    <% else %>
+      You are waiting response about adopt this gem
+    <% end %>
   <% end %>
+
 </p>
 
 <p><%= link_to 'Back', gems_path %></p>

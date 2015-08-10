@@ -22,7 +22,7 @@ class GemsAdoptionsController < ApplicationController
   def destroy
     current_user.gems_adoptions.find(params[:id]).destroy
     flash[:success] = 'Gem removed'
-    redirect_to gems_path
+    redirect_to :gems
   end
 
   private

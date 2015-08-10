@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :username, :token, presence: true
-
   has_many :gems_adoptions
-end
+  has_many :adoption_requests
+  validates :username, :token, presence: true
+  end
