@@ -1,11 +1,11 @@
 <% provide(:title, "Aditional Information for Adoption Request") %>
-<h1><%= @adoptions_request.gems_adoption %></h1>
-<%= form_for @adoptions_request do |g| %>
-  <% if @adoptions_request.errors.any? %>
+<h1><%= @adoption_request.gems_adoption %></h1>
+<%= form_for @adoption_request do |g| %>
+  <% if @adoption_request.errors.any? %>
     <div>
-      <p><%= pluralize(@adoptions_request.errors.count, "error") %> Prohibited this adoption request from being saved:</p>
+      <p><%= pluralize(@adoption_request.errors.count, "error") %> Prohibited this adoption request from being saved:</p>
       <ul>
-        <% @adoptions_request.errors.full_messages.each do |msg| %>
+        <% @adoption_request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
       </ul>
