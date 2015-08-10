@@ -1,0 +1,18 @@
+
+rails:
+  id: 1
+  name: rails
+  info: Full-stack web framework optimized for programmer happiness
+  project_uri: https://rubygems.org/gems/rails
+
+faraday:
+  id: 2
+  name: faraday
+  info: HTTP/REST API client library.
+  project_uri: https://rubygems.org/gems/faraday
+
+pg:
+  id: 3
+  name: pg
+  info: Pg is the Ruby interface to the PostgreSQL
+  project_uri: https://rubygems.org/gems/pg

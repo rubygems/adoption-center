@@ -1,0 +1,12 @@
+
+one:
+  user_id: 1
+  ruby_gem_id: 1
+
+two:
+  user_id: 1
+  ruby_gem_id: 2
+
+three:
+  user_id: 1
+  ruby_gem_id: 3
