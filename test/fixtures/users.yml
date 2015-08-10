@@ -4,3 +4,9 @@ angela:
   username: angela4713
   token: <%= SecureRandom.hex(8) %>
   email: angela4713@gmail.com
+
+alfonso:
+  id: 2
+  username: ammancilla
+  token: <%= SecureRandom.hex(8) %>
+  email: ammancilla@gmail.com

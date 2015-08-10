@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AdoptionRequestTest < ActiveSupport::TestCase
-  test "should not save gem without gems_adoption_id or user_id" do
+  test "should not save request without gems_adoption or user" do
     adoption_request = AdoptionRequest.new
     adoption_request.save
     refute adoption_request.save

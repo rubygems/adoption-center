@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/owners/ammancilla/gems.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - rubygems.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 14 Aug 2015 20:44:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - W/"85ebe6106fb5cfccc71d267f9a383a6f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fc726179-dd94-4998-a5fa-bbf2e702f428
+      X-Runtime:
+      - '0.031757'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"name":"play_hangman","downloads":662,"version":"0.0.3","version_downloads":331,"platform":"ruby","authors":"Alfonso
+        Mancilla","info":"Play Hangman on your console! Install, run the command ''play_hangman''
+        and enjoy.\nThis game was built using the ''hangman_engine'' gem. Check it
+        out to build your own Hangman game.","licenses":["MIT"],"metadata":{},"sha":"c404237eaafd12833ee64dc40d13d310ac717570236fd0ef985063405a9fd25c","project_uri":"https://rubygems.org/gems/play_hangman","gem_uri":"https://rubygems.org/gems/play_hangman-0.0.3.gem","homepage_uri":"https://github.com/ammancilla/play_hangman","wiki_uri":null,"documentation_uri":"http://www.rubydoc.info/gems/play_hangman/0.0.3","mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"console_view_helper","requirements":"~\u003e
+        0.0.4"},{"name":"hangman_engine","requirements":"~\u003e 0.0.1"}]}},{"name":"hangman_engine","downloads":386,"version":"0.0.1","version_downloads":386,"platform":"ruby","authors":"Alfonso
+        Mancilla","info":"Use this library to build your own HANGMAN game.\nHangmanEngine::Game
+        have all you need to control the game flow.\nHangmanEngine::Drawer will help
+        you to build a console based interface for your HangmanEngine::Game","licenses":["MIT"],"metadata":{},"sha":"de42b1ba2cb7046a443553d500410517badf0250de6347ac37c04548f013103d","project_uri":"https://rubygems.org/gems/hangman_engine","gem_uri":"https://rubygems.org/gems/hangman_engine-0.0.1.gem","homepage_uri":"https://github.com/ammancilla/hangman_engine","wiki_uri":null,"documentation_uri":"http://www.rubydoc.info/gems/hangman_engine/0.0.1","mailing_list_uri":null,"source_code_uri":"https://github.com/ammancilla/hangman_engine","bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[]}},{"name":"console_view_helper","downloads":1202,"version":"0.0.4","version_downloads":409,"platform":"ruby","authors":"Alfonso
+        Mancilla","info":"The console_view_helper library is used to build clean and
+        beautiful console application interfaces.\nCustomizable components such as
+        banners, tables, menus, lists, text inputs, hidden text inputs and\nmethods
+        as colorize,  putsi, printi, align, explain, among others,\nwill help you
+        build a good console application interface with less code and in less time.","licenses":["MIT"],"metadata":{},"sha":"81f6e5687299ce30e0b39fae801072687baf2c2ae7ec37113048b92fb83f1d55","project_uri":"https://rubygems.org/gems/console_view_helper","gem_uri":"https://rubygems.org/gems/console_view_helper-0.0.4.gem","homepage_uri":"https://github.com/ammancilla/console_view_helper","wiki_uri":null,"documentation_uri":"http://www.rubydoc.info/gems/console_view_helper/0.0.4","mailing_list_uri":null,"source_code_uri":"https://github.com/ammancilla/console_view_helper","bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"colored","requirements":"=
+        1.2"}]}}]'
+    http_version:
+  recorded_at: Fri, 14 Aug 2015 20:44:15 GMT
+recorded_with: VCR 2.9.3
