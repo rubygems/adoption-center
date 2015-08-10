@@ -35,7 +35,7 @@
     <% end %>
   <% else %>
     <% if @gem_adoption && @adoption_request.nil? %>
-      <%= link_to 'Adopt this gem', new_adoptions_request_path(id: @gem_adoption['id']), :class => "button" %>
+      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption['id']), :class => "button" %>
     <% else %>
       You are waiting response about adopt this gem
     <% end %>
