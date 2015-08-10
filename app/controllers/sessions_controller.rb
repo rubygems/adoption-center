@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = 'Signed in!'
       redirect_to :gems
+      gems = Gems.gems(current_user.username)
+      current_user.sync_gems(gems)
     end
   end
 
