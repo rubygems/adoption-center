@@ -3,5 +3,5 @@ class GemsAdoption < ActiveRecord::Base
   has_many :adoption_requests
   validates :gem, :user_id, presence: true
 
-  scope :search, -> (keyword) { where("gem like ?", "%#{keyword}%") } 
+  scope :search, -> (keyword) { where("gem like ?", "%#{keyword}%") }
 end
