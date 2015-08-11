@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'site#index'
   get '/auth/:provider/callback'   => 'sessions#create', :as => :omniauth_callback
   get "/signout" => "sessions#destroy", :as => :signout
+  get "/search" => "site#search_gems", :as => :search
   resources :gems, only: [:index, :show]
   resources :gems_adoptions, only: [:index, :new, :create, :destroy]
 
