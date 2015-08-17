@@ -19,7 +19,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "should store user new gems" do
+  test "should remove gems that do not belongs to the user anymore" do
     response = [{"name"=>"play_hangman", "info"=>"Play Hangman on your console! Install, run the command 'play_hangman' and enjoy.\nThis game was built using the 'hangman_engine' gem. Check it out to build your own Hangman game.", "project_uri"=>"https://rubygems.org/gems/play_hangman"}]
     user = users(:angela)
     assert_difference('user.ruby_gems.count', -2) do
@@ -27,7 +27,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "should remove gems that do not belongs to the user anymore" do
+  test "should store user new gems" do
     response = [{"name"=>"rails", "info"=>"Full-stack web framework optimized for programmer happiness", "project_uri"=>"https://rubygems.org/gems/rails"}, {"name"=>"faraday", "info"=>"HTTP/REST API client library.", "project_uri"=>"https://rubygems.org/gems/faraday"}, {"name"=>"pg", "info"=>"Pg is the Ruby interface to the PostgreSQL", "project_uri"=>"https://rubygems.org/gems/pg"}, {"name"=>"play_hangman", "info"=>"Play Hangman on your console! Install, run the command 'play_hangman' and enjoy.\nThis game was built using the 'hangman_engine' gem. Check it out to build your own Hangman game.", "project_uri"=>"https://rubygems.org/gems/play_hangman"}]
     user = users(:angela)
     assert_difference('user.ruby_gems.count', 1) do
