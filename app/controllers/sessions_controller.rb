@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
       flash[:success] = 'Validation failed'
       redirect_to :root
     else
+      gems = Gems.gems(user.username)
+      user.sync_gems(gems)
       session[:user_id] = user.id
       flash[:success] = 'Signed in!'
       redirect_to :gems
-      gems = Gems.gems(current_user.username)
-      current_user.sync_gems(gems)
     end
   end
 

@@ -7,9 +7,13 @@ class User < ActiveRecord::Base
   def sync_gems(gems)
     ruby_gem_array = Array.new
     gems.each do |g|
-      ruby_gem = RubyGem.find_or_create_by(name: g['name'], info: g['info'], project_uri: g['project_uri'])
-      ruby_gem_array << ruby_gem.id
-      self.ruby_gems << ruby_gem unless self.ruby_gems.exists?(ruby_gem)
+      ruby_gem = RubyGem.find_or_initialize_by(name: g['name'])
+      if ruby_gem.new_record?
+        ruby_gem.assign_attributes(info: g['info'], project_uri: g['project_uri'])
+        ruby_gem.save!
+        ruby_gem_array << ruby_gem.id
+        self.ruby_gems << ruby_gem unless self.ruby_gems.exists?(ruby_gem)
+      end
     end
     ruby_gems = self.ruby_gems.where('ruby_gems_users.ruby_gem_id NOT IN (?)', ruby_gem_array)
     self.ruby_gems.destroy(ruby_gems)
