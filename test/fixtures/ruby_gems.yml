@@ -16,3 +16,9 @@ pg:
   name: pg
   info: Pg is the Ruby interface to the PostgreSQL
   project_uri: https://rubygems.org/gems/pg
+
+kaminari:
+  id: 4
+  name: kaminari
+  info: Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator
+  project_uri: https://rubygems.org/gems/kaminari

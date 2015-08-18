@@ -1,6 +1,6 @@
 
 pg:
   id: 1
-  gem: pg
+  ruby_gem_id: 3
   description: Gem looking for a new maintainer
   user_id: 1

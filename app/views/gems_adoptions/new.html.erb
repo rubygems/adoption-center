@@ -1,5 +1,5 @@
 <% provide(:title, "Aditional Information") %>
-<h1><%= @gems_adoption.gem %></h1>
+<h1><%= @ruby_gem.name %></h1>
 <%= form_for @gems_adoption do |g| %>
   <% if @gems_adoption.errors.any? %>
     <div>
@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-  <%= g.hidden_field :gem %>
+  <%= g.hidden_field :ruby_gem_id %>
   <%= g.label :description, 'Aditional information' %>
   <p><%= g.text_area :description %></p>
   <p><%= g.submit "Confirm" %></p>

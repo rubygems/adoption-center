@@ -1,46 +1,28 @@
 <% provide(:title, "Information Gem") %>
 <div id='gem_name'>
   <strong>Gem:</strong>
-  <%= @gem['name'] %>
-</div>
-
-<div>
-  <strong>Version:</strong>
-  <%= @gem['version'] %>
+  <%= @ruby_gem.name %>
 </div>
 
 <div id='gem_description'>
   <strong>Description:</strong>
-  <%= @gem['info'] %>
-</div>
-
-<div>
-  <strong>Authors:</strong>
-  <%= @gem['authors'] %>
-</div>
-
-<div>
-  <strong>Owners:</strong>
-  <% @gem_owners.each do |go| %>
-    <li><%= go['handle'] %></li>
-  <% end %>
+  <%= @ruby_gem.info %>
 </div>
 
 <p>
-  <% if @gem_owners.find { |o| o['handle'] == current_user.username } %>
+  <% if current_user.owns_gem?(@ruby_gem)  %>
     <% if @gem_adoption %>
       <%= button_to 'Remove from adoption', @gem_adoption, method: :delete, data: { confirm: 'Are you sure?' }  %>
     <% else %>
-      <%= link_to 'Put for adoption', new_gems_adoption_path(id: @gem['name']), :class => "button" %>
+      <%= link_to 'Put for adoption', new_gems_adoption_path(id: @ruby_gem.id), :class => "btn btn-primary" %>
     <% end %>
   <% else %>
     <% if @gem_adoption && @adoption_request.nil? %>
-      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption['id']), :class => "button" %>
+      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), :class => "btn btn-primary" %>
     <% else %>
       You are waiting response about adopt this gem
     <% end %>
   <% end %>
-
 </p>
 
 <p><%= link_to 'Back', gems_path %></p>

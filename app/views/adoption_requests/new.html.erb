@@ -1,5 +1,5 @@
 <% provide(:title, "Aditional Information for Adoption Request") %>
-<h1><%= @adoption_request.gems_adoption %></h1>
+<h1><%= @gem_adoption.ruby_gem.name %></h1>
 <%= form_for @adoption_request do |g| %>
   <% if @adoption_request.errors.any? %>
     <div>

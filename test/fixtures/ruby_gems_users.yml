@@ -10,3 +10,7 @@ two:
 three:
   user_id: 1
   ruby_gem_id: 3
+
+four:
+  user_id: 3
+  ruby_gem_id: 4

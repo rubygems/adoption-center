@@ -13,9 +13,9 @@
   <tbody>
     <% @gems_adoptions.each do |gems_adoption| %>
       <tr>
-        <td id='gem_name'><%= gems_adoption.gem %></td>
+        <td id='gem_name'><%= gems_adoption.ruby_gem.name %></td>
         <td id='gem_info_adoption'><%= gems_adoption.description %></td>
-        <td><%= link_to 'Show', gem_path(id: gems_adoption['gem']) %></td>
+        <td><%= link_to 'Show', gem_path(gems_adoption.ruby_gem) %></td>
       </tr>
     <% end %>
   </tbody>
