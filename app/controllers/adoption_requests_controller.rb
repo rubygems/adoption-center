@@ -2,14 +2,15 @@ class AdoptionRequestsController < ApplicationController
   before_action :require_login
 
   def new
-    @adoption_request = AdoptionRequest.new(gems_adoption_id: params[:id])
+    @gem_adoption = GemsAdoption.find(params[:id])
+    @adoption_request = @gem_adoption.adoption_requests.build
   end
 
   def create
     @adoption_request = current_user.adoption_requests.build(adoption_request_params)
     if @adoption_request.save
       flash[:success] = 'Adoption request sent'
-      redirect_to gem_path(id: @adoption_request.gems_adoption.gem)
+      redirect_to gem_path(@adoption_request.gems_adoption.ruby_gem)
     else
       render :new
     end

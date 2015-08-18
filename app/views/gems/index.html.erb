@@ -1,7 +1,7 @@
 <% provide(:title, "My Gems") %>
 <h1>Dashboard</h1>
 
-<% if @gems.empty? %>
+<% if @ruby_gems.empty? %>
   You haven't pushed any gems yet.
 <% else %>
   <table>
@@ -12,10 +12,10 @@
       </tr>
     </thead>
     <tbody>
-      <% @gems.each do |g| %>
+      <% @ruby_gems.each do |g| %>
         <tr>
-          <td><%= g['name'] %></td>
-          <td><%= link_to 'Show', gem_path(id: g['name']) %></td>
+          <td><%= g.name %></td>
+          <td><%= link_to 'Show', gem_path(g) %></td>
         </tr>
       <% end %>
   </tbody>

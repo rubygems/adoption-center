@@ -10,3 +10,9 @@ alfonso:
   username: ammancilla
   token: <%= SecureRandom.hex(8) %>
   email: ammancilla@gmail.com
+
+sebastian:
+  id: 3
+  username: sebasoga
+  token: <%= SecureRandom.hex(8) %>
+  email: sebasoga@gmail.com
