@@ -1,0 +1,10 @@
+<h1>Results</h1>
+<%= render :partial => 'search_gems' %>
+<br>
+<ul>
+<% @gems.each do |gem| %>
+  <li>
+    <%= link_to gem.gem, gem_path(id: gem.gem), id: "gem_name" %>
+  </li>
+<% end %>
+</ul>
