@@ -4,7 +4,7 @@
 <ul>
 <% @gems.each do |gem| %>
   <li>
-    <%= link_to gem.gem, gem_path(id: gem.gem) %>
+    <%= link_to gem.gem, gem_path(id: gem.gem), id: "gem_name" %>
   </li>
 <% end %>
 </ul>
