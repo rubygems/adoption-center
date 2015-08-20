@@ -1,10 +1,14 @@
 <h1>Results</h1>
 <%= render :partial => 'search_gems' %>
 <br>
-<ul>
-<% @gems.each do |gem| %>
-  <li>
-    <%= link_to gem.gem, gem_path(id: gem.gem), id: "gem_name" %>
-  </li>
+<% if @gems_adoptions %>
+  <ul>
+  <% @gems_adoptions.each do |gem_adoption| %>
+    <li>
+      <%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem), id: "gem_name" %>
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  No hay resultados
 <% end %>
-</ul>

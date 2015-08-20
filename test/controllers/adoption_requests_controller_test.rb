@@ -6,7 +6,7 @@ class AdoptionRequestsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new, id: '1'
+    get :new, id: 1
 
     assert_template :new
     assert_select "title", "Aditional Information for Adoption Request | RubyGems AdoptionCenter"
@@ -15,16 +15,9 @@ class AdoptionRequestsControllerTest < ActionController::TestCase
 
   test "should create an adoption request" do
     assert_difference('AdoptionRequest.count', 1) do
-      post :create, adoption_request: { gems_adoption_id: 1, description: 'Gem for adoption'}
+      post :create, adoption_request: { gems_adoption_id: 1, description: 'I want adopt this gem'}
     end
     assert_equal 'Adoption request sent', flash[:success]
-    assert_redirected_to gem_path(id: 'pg')
-  end
-
-  test "should not create an adoption request" do
-    assert_no_difference 'AdoptionRequest.count' do
-      post :create, adoption_request: { gems_adoption_id: '', description: 'Gem for adoption'}
-    end
-    assert_template "new"
+    assert_redirected_to gem_path(id: 3)
   end
 end

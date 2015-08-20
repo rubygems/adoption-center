@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805162233) do
+ActiveRecord::Schema.define(version: 20150810155250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,32 @@ ActiveRecord::Schema.define(version: 20150805162233) do
 
   create_table "gems_adoptions", force: :cascade do |t|
     t.integer  "user_id",     null: false
-    t.string   "gem",         null: false
+    t.integer  "ruby_gem_id", null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "gems_adoptions", ["ruby_gem_id"], name: "index_gems_adoptions_on_ruby_gem_id", using: :btree
+  add_index "gems_adoptions", ["user_id"], name: "index_gems_adoptions_on_user_id", using: :btree
+
+  create_table "ruby_gems", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "info"
+    t.string   "project_uri"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ruby_gems", ["name"], name: "index_ruby_gems_on_name", using: :btree
+
+  create_table "ruby_gems_users", id: false, force: :cascade do |t|
+    t.integer "ruby_gem_id"
+    t.integer "user_id"
+  end
+
+  add_index "ruby_gems_users", ["ruby_gem_id"], name: "index_ruby_gems_users_on_ruby_gem_id", using: :btree
+  add_index "ruby_gems_users", ["user_id"], name: "index_ruby_gems_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   null: false

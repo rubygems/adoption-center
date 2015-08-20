@@ -1,0 +1,24 @@
+
+rails:
+  id: 1
+  name: rails
+  info: Full-stack web framework optimized for programmer happiness
+  project_uri: https://rubygems.org/gems/rails
+
+faraday:
+  id: 2
+  name: faraday
+  info: HTTP/REST API client library.
+  project_uri: https://rubygems.org/gems/faraday
+
+pg:
+  id: 3
+  name: pg
+  info: Pg is the Ruby interface to the PostgreSQL
+  project_uri: https://rubygems.org/gems/pg
+
+kaminari:
+  id: 4
+  name: kaminari
+  info: Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator
+  project_uri: https://rubygems.org/gems/kaminari

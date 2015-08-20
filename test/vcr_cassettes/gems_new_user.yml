@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rubygems.org/api/v1/owners/teambinary/gems.json
+    uri: https://rubygems.org/api/v1/owners/linatodi/gems.json
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 22 Jul 2015 20:19:07 GMT
+      - Wed, 12 Aug 2015 16:05:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -38,22 +38,24 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      Etag:
+      - W/"d751713988987e9331980363e24189ce"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1acf3677-cdd8-4db4-9389-5a87e4cef05a
+      - 5dbcfdc1-9af1-4ce1-a966-26a94ceade58
       X-Runtime:
-      - '0.006118'
+      - '0.006543'
       X-Ua-Compatible:
       - IE=Edge,chrome=1
     body:
       encoding: ASCII-8BIT
       string: "[]"
-    http_version:
-  recorded_at: Wed, 22 Jul 2015 20:19:07 GMT
+    http_version: 
+  recorded_at: Wed, 12 Aug 2015 16:05:47 GMT
 - request:
     method: get
-    uri: https://rubygems.org/api/v1/owners/angela4713/gems.yaml
+    uri: https://rubygems.org/api/v1/owners/linatodi/gems.yaml
     body:
       encoding: US-ASCII
       string: ''
@@ -65,8 +67,6 @@ http_interactions:
       User-Agent:
       - Gems 0.8.3
       - Ruby
-      Authorization:
-      - "”0c710931bcb4c88a1fd522fbc0a53426”"
       Connection:
       - keep-alive
       Keep-Alive:
@@ -81,7 +81,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 22 Jul 2015 20:54:07 GMT
+      - Wed, 12 Aug 2015 16:05:48 GMT
       Content-Type:
       - text/yaml
       Transfer-Encoding:
@@ -105,15 +105,15 @@ http_interactions:
       Etag:
       - W/"2ab76a06c7db1f4a7ee0261564784d2e"
       X-Request-Id:
-      - 616a3385-b268-4db7-8816-b85b21c14688
+      - 50161aed-97d4-402c-a8e0-c6f38ab4b4b1
       X-Runtime:
-      - '0.007760'
+      - '0.008022'
       X-Ua-Compatible:
       - IE=Edge,chrome=1
     body:
       encoding: UTF-8
       string: |
         --- []
-    http_version:
-  recorded_at: Wed, 22 Jul 2015 20:54:07 GMT
+    http_version: 
+  recorded_at: Wed, 12 Aug 2015 16:05:48 GMT
 recorded_with: VCR 2.9.3
