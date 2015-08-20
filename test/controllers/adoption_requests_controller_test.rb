@@ -13,6 +13,15 @@ class AdoptionRequestsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should list adoptions requests" do
+    get :index
+
+    assert_template :index
+    assert_select "title", "Adoptions Requests | RubyGems AdoptionCenter"
+    assert_select "#gem_name", "pg"
+    assert_response :success
+  end
+
   test "should create an adoption request" do
     assert_difference('AdoptionRequest.count', 1) do
       post :create, adoption_request: { gems_adoption_id: 1, description: 'I want adopt this gem'}

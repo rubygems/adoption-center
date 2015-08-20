@@ -1,6 +1,10 @@
 class AdoptionRequestsController < ApplicationController
   before_action :require_login
 
+  def index
+    @gems_adoptions = current_user.gems_adoptions.includes(:ruby_gem, adoption_requests: :user)
+  end
+
   def new
     @gem_adoption = GemsAdoption.find(params[:id])
     @adoption_request = @gem_adoption.adoption_requests.build

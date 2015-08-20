@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/search" => "site#search_gems", :as => :search
   resources :gems, only: [:index, :show]
   resources :gems_adoptions, only: [:index, :new, :create, :destroy]
-  resources :adoption_requests, only: [:new, :create]
+  resources :adoption_requests, only: [:index, :new, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
