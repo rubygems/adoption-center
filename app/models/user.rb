@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :gems_adoptions
   has_many :adoption_requests
+  has_many :ownership_transfers, class_name: "GemOwnershipTransfer", foreign_key: "old_user_id"
+  has_many :ownership_receptions, class_name: "GemOwnershipTransfer", foreign_key: "new_user_id"
   has_and_belongs_to_many :ruby_gems
   validates :username, :token, presence: true
 

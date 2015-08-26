@@ -31,10 +31,18 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
     assert_redirected_to gem_path(id: 1)
   end
 
+  test "should close a gem up for adoption" do
+    adoption_request = adoption_requests(:one)
+    assert_difference('GemOwnershipTransfer.count') do
+      put :update, id: adoption_request.id
+    end
+    assert_redirected_to gem_path(id: 3)
+  end
+
   test "should destroy gem for adoption" do
-    g = gems_adoptions(:pg)
+    gems_adoptions = gems_adoptions(:pg)
     assert_difference('GemsAdoption.count', -1) do
-      delete :destroy, id: g.id
+      delete :destroy, id: gems_adoptions.id
     end
     assert_redirected_to gems_path
     assert_equal 'Gem removed', flash[:success]

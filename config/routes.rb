@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/signout" => "sessions#destroy", :as => :signout
   get "/search" => "site#search_gems", :as => :search
   resources :gems, only: [:index, :show]
-  resources :gems_adoptions, only: [:index, :new, :create, :destroy]
+  resources :gems_adoptions, except: :edit
   resources :adoption_requests, only: [:index, :new, :create]
 
   # Example of regular route:
