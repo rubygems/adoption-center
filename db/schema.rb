@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810155250) do
+ActiveRecord::Schema.define(version: 20150826205450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,25 @@ ActiveRecord::Schema.define(version: 20150810155250) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "gems_adoptions", force: :cascade do |t|
-    t.integer  "user_id",     null: false
+  create_table "gem_ownership_transfers", force: :cascade do |t|
+    t.integer  "old_user_id", null: false
+    t.integer  "new_user_id", null: false
     t.integer  "ruby_gem_id", null: false
-    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "gem_ownership_transfers", ["new_user_id"], name: "index_gem_ownership_transfers_on_new_user_id", using: :btree
+  add_index "gem_ownership_transfers", ["old_user_id"], name: "index_gem_ownership_transfers_on_old_user_id", using: :btree
+  add_index "gem_ownership_transfers", ["ruby_gem_id"], name: "index_gem_ownership_transfers_on_ruby_gem_id", using: :btree
+
+  create_table "gems_adoptions", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "ruby_gem_id",             null: false
+    t.text     "description"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
   end
 
   add_index "gems_adoptions", ["ruby_gem_id"], name: "index_gems_adoptions_on_ruby_gem_id", using: :btree
@@ -61,4 +74,6 @@ ActiveRecord::Schema.define(version: 20150810155250) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gem_ownership_transfers", "users", column: "new_user_id"
+  add_foreign_key "gem_ownership_transfers", "users", column: "old_user_id"
 end

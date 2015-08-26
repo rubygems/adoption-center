@@ -20,6 +20,17 @@ class GemsAdoptionsController < ApplicationController
     end
   end
 
+  def update
+    adoption_request = AdoptionRequest.find(params[:id])
+    gems_adoption = adoption_request.gems_adoption
+    if gems_adoption.update(status: 'closed') && GemOwnershipTransfer.create(old_user: current_user, new_user_id: adoption_request.user_id, ruby_gem_id: gems_adoption.ruby_gem_id)
+      redirect_to gem_path(gems_adoption.ruby_gem)
+    else
+      flash[:success] = "Gem couldn't be transferred"
+      redirect_to :adoption_requests
+    end
+  end
+
   def destroy
     current_user.gems_adoptions.find(params[:id]).destroy
     flash[:success] = 'Gem removed'
