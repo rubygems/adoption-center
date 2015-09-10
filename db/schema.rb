@@ -26,14 +26,11 @@ ActiveRecord::Schema.define(version: 20150810155250) do
 
   create_table "gems_adoptions", force: :cascade do |t|
     t.integer  "user_id",     null: false
-    t.integer  "ruby_gem_id", null: false
-    t.text     "description"
+    t.string   "gem",         null: false
+    t.text     "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "gems_adoptions", ["ruby_gem_id"], name: "index_gems_adoptions_on_ruby_gem_id", using: :btree
-  add_index "gems_adoptions", ["user_id"], name: "index_gems_adoptions_on_user_id", using: :btree
 
   create_table "ruby_gems", force: :cascade do |t|
     t.string   "name",        null: false
