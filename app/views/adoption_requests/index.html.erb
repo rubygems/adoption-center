@@ -9,7 +9,7 @@
       <% gem_adoption.adoption_requests.each do |adoption_request| %>
         <li>
           <p><strong><%= adoption_request.user.username %></strong>: <%= adoption_request.description %></p>
-          <button>Accept</button>
+          <%= link_to 'Accept', gems_adoption_path(id: adoption_request.id), method: :put, :class => "btn btn-primary" %>
         </li>
       <% end %>
     </ul>
