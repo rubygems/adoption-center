@@ -5,6 +5,7 @@ gem 'rails', '4.2.2'
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'letter_opener'
 end
 
 group :test do
