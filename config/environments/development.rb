@@ -36,6 +36,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  #letter opener gem
+  config.action_mailer.delivery_method = :letter_opener
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
