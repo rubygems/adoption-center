@@ -13,6 +13,7 @@ class AdoptionRequestsController < ApplicationController
   def create
     @adoption_request = current_user.adoption_requests.build(adoption_request_params)
     if @adoption_request.save
+      NotificationMailer.email_new_adoption_request(current_user, @adoption_request.gems_adoption.ruby_gem).deliver
       flash[:success] = 'Adoption request sent'
       redirect_to gem_path(@adoption_request.gems_adoption.ruby_gem)
     else
