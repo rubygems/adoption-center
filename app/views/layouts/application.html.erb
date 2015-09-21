@@ -13,17 +13,23 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><%= link_to 'Home', root_path %></li>
-            <li role="presentation"><%= link_to 'Gems', gems_adoptions_path %></li>
+            <li role="presentation"><%= link_to 'Gems', :gems_adoptions %></li>
             <% if current_user %>
-              <li role ="presentation"><%= link_to "Adoption requests", adoption_requests_path %></li>
-              <li role="presentation"><%= link_to "Sign out", signout_path %></li>
+              <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a tabindex="-1" href="#"><%= link_to 'Dashboard', :gems %></a></li>
+                  <li><a tabindex="-1" href="#"><%= link_to "Adoption requests", :adoption_requests %></a></li>
+                  <li class="divider"></li>
+                  <li><a tabindex="-1" href="#"><%= link_to "Sign out", :signout %></a></li>
+                </ul>
+              </li>
             <% else %>
               <li role="presentation"><%= link_to 'Sign in with Github', '/auth/github' %></li>
             <% end %>
           </ul>
         </nav>
-        <h3 class="text-muted">RubyGems Adoption Center</h3>
+        <h3 class="text-muted"><%= link_to 'RubyGems Adoption Center', :root %></h3>
       </div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: "alert alert-#{name}" %>
