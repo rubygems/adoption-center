@@ -1,0 +1,4 @@
+<h1>Hi <%= @user.username %></h1>
+<p>Your adoption request of the gem <%= link_to @gem_adoption.ruby_gem.name, gem_path(@gem_adoption.ruby_gem) %> has been rejected %>.</p>
+<p>Best regards,</p>
+<p>RubyGems Adoption Center.</p>
