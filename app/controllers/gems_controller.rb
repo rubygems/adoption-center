@@ -1,4 +1,6 @@
 class GemsController < ApplicationController
+  before_action :require_login
+
   def index
     @ruby_gems = current_user.ruby_gems.order(:name)
   end

@@ -1,5 +1,5 @@
 class GemsAdoptionsController < ApplicationController
-  before_action :require_login, only: [:new, :create, :destroy]
+  before_action :require_login, execpt: :index
 
   def index
     @gems_adoptions = GemsAdoption.page(params[:page])
