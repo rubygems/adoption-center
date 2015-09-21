@@ -17,11 +17,9 @@ class GemsControllerTest < ActionController::TestCase
     get :show, id: 1
 
     assert_template :show
-    assert_select "title", "Information Gem | RubyGems AdoptionCenter"
-    assert_select "#gem_name", "Gem:
-  rails"
-    assert_select "#gem_description", "Description:
-  Full-stack web framework optimized for programmer happiness"
+    assert_select "title", "Gem Information | RubyGems AdoptionCenter"
+    assert_select ".gem-name", "rails"
+    assert_select ".gem-info", "Full-stack web framework optimized for programmer happiness"
     assert_response :success
   end
 end

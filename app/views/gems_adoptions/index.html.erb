@@ -3,9 +3,9 @@
 
 <dl>
   <% @gems_adoptions.each do |gem_adoption| %>
-    <dt><h4><b><%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem) %></b></h4></dt>
-    <dd class-"text-muted"><%= truncate(gem_adoption.ruby_gem.info, length: 140, omission: '...') %></dd>
-    <hr />
+    <dt class="gem-name"><h4><b><%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem) %></b></h4></dt>
+    <dd class="text-muted gem-info"><%= truncate(gem_adoption.ruby_gem.info, length: 140, omission: '...') %></dd>
+    <hr>
   <% end %>
 </dl>
 

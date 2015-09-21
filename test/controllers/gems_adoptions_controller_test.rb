@@ -10,8 +10,8 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
 
     assert_template :index
     assert_select "title", "Gems up for Adoption | RubyGems AdoptionCenter"
-    assert_select "#gem_name", "pg"
-    assert_select "#gem_info_adoption", "Gem looking for a new maintainer"
+    assert_select ".gem-name", "pg"
+    assert_select ".gem-info", "Pg is the Ruby interface to the PostgreSQL"
     assert_response :success
   end
 
@@ -19,7 +19,7 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
     get :new, id: 1
 
     assert_template :new
-    assert_select "title", "Aditional Information | RubyGems AdoptionCenter"
+    assert_select "title", "Adoption Form | RubyGems AdoptionCenter"
     assert_response :success
   end
 
@@ -45,6 +45,6 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
       delete :destroy, id: gems_adoptions.id
     end
     assert_redirected_to gems_path
-    assert_equal 'Gem removed', flash[:success]
+    assert_equal 'Gem removed from adoption', flash[:success]
   end
 end

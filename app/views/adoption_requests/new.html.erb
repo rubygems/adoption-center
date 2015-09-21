@@ -1,6 +1,6 @@
-<% provide(:title, "Aditional Information for Adoption Request") %>
-<h1><%= @gem_adoption.ruby_gem.name %></h1>
-<%= form_for @adoption_request do |g| %>
+<% provide(:title, "Adoption Request Form") %>
+<%= form_for @adoption_request do |f| %>
+  <h1><%= @gem_adoption.ruby_gem.name %></h1>
   <% if @adoption_request.errors.any? %>
     <div>
       <p><%= pluralize(@adoption_request.errors.count, "error") %> Prohibited this adoption request from being saved:</p>
@@ -11,8 +11,12 @@
       </ul>
     </div>
   <% end %>
-  <%= g.hidden_field :gems_adoption_id %>
-  <%= g.label :description, 'Aditional information' %>
-  <p><%= g.text_area :description %></p>
-  <p><%= g.submit "Confirm" %></p>
+
+  <br>
+  <%= f.hidden_field :gems_adoption_id %>
+  <p><%= f.text_area :description, placeholder: 'Why do you want to adopt this gem?', class: 'form-control', rows: 5 %></p>
+  <ul class="list-inline">
+    <li><%= f.submit "Send adoption request", class: 'btn btn-primary' %></li>
+    <li><%= link_to 'Cancel', gem_path(@gem_adoption.ruby_gem), class: 'btn btn-danger' %></li>
+  </ul>
 <% end %>

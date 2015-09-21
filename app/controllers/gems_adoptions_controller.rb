@@ -1,5 +1,5 @@
 class GemsAdoptionsController < ApplicationController
-  before_action :require_login, execpt: :index
+  before_action :require_login, except: :index
 
   def index
     @gems_adoptions = GemsAdoption.page(params[:page])
@@ -24,16 +24,17 @@ class GemsAdoptionsController < ApplicationController
     adoption_request = AdoptionRequest.find(params[:id])
     gems_adoption = adoption_request.gems_adoption
     if gems_adoption.update(status: 'closed') && GemOwnershipTransfer.create(old_user: current_user, new_user_id: adoption_request.user_id, ruby_gem_id: gems_adoption.ruby_gem_id)
+      flash[:success] = "Gem ownership transferred"
       redirect_to gem_path(gems_adoption.ruby_gem)
     else
-      flash[:success] = "Gem couldn't be transferred"
+      flash[:danger] = "Gem couldn't be transferred"
       redirect_to :adoption_requests
     end
   end
 
   def destroy
     current_user.gems_adoptions.find(params[:id]).destroy
-    flash[:success] = 'Gem removed'
+    flash[:success] = 'Gem removed from adoption'
     redirect_to :gems
   end
 

@@ -14,7 +14,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation"><%= link_to 'Gems', :gems_adoptions %></li>
-            <% if current_user %>
+            <% if logged_in? %>
               <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">

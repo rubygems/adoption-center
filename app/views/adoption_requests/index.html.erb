@@ -1,17 +1,12 @@
 <% provide(:title, "Adoptions Requests") %>
-<h2>Adoption Requests</h2>
+<h1>Adoption Requests</h1>
 <% if @gems_adoptions.empty? %>
-  You don't have gems up for adoption
+  <p>You don't have gems up for adoption</p>
 <% else %>
   <% @gems_adoptions.each do |gem_adoption| %>
-    <h3 id="gem_name" ><%= gem_adoption.ruby_gem.name %></h3>
-    <ul>
-      <% gem_adoption.adoption_requests.each do |adoption_request| %>
-        <li>
-          <p><strong><%= adoption_request.user.username %></strong>: <%= adoption_request.description %></p>
-          <%= link_to 'Accept', gems_adoption_path(id: adoption_request.id), method: :put, :class => "btn btn-primary" %>
-        </li>
-      <% end %>
-    </ul>
+    <div>
+      <h2 class="text-muted gem-name"><%= gem_adoption.ruby_gem.name %></h2><br>
+      <%= render(gem_adoption.adoption_requests) || "<p>No adoption requests yet.</p>".html_safe %>
+    </div>
   <% end %>
 <% end %>

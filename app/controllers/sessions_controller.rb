@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     email = auth["info"]["email"]
     user = User.find_or_initialize_by(username:username, token: token, email: email)
     if user.new_record? && !user.save
-      flash[:success] = 'Validation failed'
+      flash[:danger] = 'Oops, something went wrong. Try again.'
       redirect_to :root
     else
       gems = Gems.gems(user.username)
