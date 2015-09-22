@@ -14,6 +14,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation"><%= link_to 'Gems', :gems_adoptions %></li>
+            <li role="presentation"><%= link_to 'Recent Activity', :gem_ownership_transfers %></li>
             <% if logged_in? %>
               <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><span class="caret"></span></a>
