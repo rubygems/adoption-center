@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :gems, only: [:index, :show]
   resources :gems_adoptions, except: :edit
   resources :adoption_requests, only: [:index, :new, :create]
+  resources :gem_ownership_transfers, only: :index
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
