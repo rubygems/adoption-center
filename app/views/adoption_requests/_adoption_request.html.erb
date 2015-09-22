@@ -1,0 +1,17 @@
+<div>
+  <!-- Adoption request information -->
+  <p><b><%= link_to adoption_request.user.username, adoption_request.user.rubygems_profile, target: 'blank' %></b> applied to adopt this gem on <b><%= l(adoption_request.created_at, format: "%B %d, %Y.").capitalize %></b></p>
+  <% if adoption_request.description? %>
+    <blockquote >
+      <p><%= adoption_request.description %></p>
+    </blockquote>
+  <% end %>
+
+  <!-- Actions -->
+  <ul class="list-inline">
+    <li><%= link_to 'Accept request', gems_adoption_path(id: adoption_request.id), method: :put, :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></li>
+    <li>or</li>
+    <li><%= mail_to adoption_request.user.email, "Reply via e-mail", data: { toggle: "tooltip", placement: "right", title: adoption_request.user.email } %></li>
+  </ul>
+</div>
+<hr>

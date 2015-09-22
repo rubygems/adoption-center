@@ -1,28 +1,39 @@
-<% provide(:title, "Information Gem") %>
-<div id='gem_name'>
-  <strong>Gem:</strong>
-  <%= @ruby_gem.name %>
-</div>
+<% provide(:title, "Gem Information") %>
+<h1 class="gem-name"><%= @ruby_gem.name %></h1>
+<p class="gem-info"><%= @ruby_gem.info %></p>
+<p><%= link_to "View on RubyGems", @ruby_gem.project_uri %></p>
+<hr>
 
-<div id='gem_description'>
-  <strong>Description:</strong>
-  <%= @ruby_gem.info %>
-</div>
+<% if @gem_adoption %>
+  <h3 class="text-muted">About the adoption</h3>
+  <% if @gem_adoption.description? %>
+    <blockquote>
+      <p><%= @gem_adoption.description %></p>
+    </blockquote>
+  <% end %>
+  <p><b><%= link_to @gem_adoption.user.username, @gem_adoption.user.rubygems_profile, target: 'blank' %></b> put this gem up for adoption on <b><%= l(@gem_adoption.created_at, format: "%B %d, %Y.").capitalize %></b></p>
+  <hr>
+<% end %>
 
-<p>
-  <% if current_user.owns_gem?(@ruby_gem)  %>
+<% if logged_in? %>
+  <% if current_user.owns_gem?(@ruby_gem) %>
     <% if @gem_adoption %>
-      <%= button_to 'Remove from adoption', @gem_adoption, method: :delete, data: { confirm: 'Are you sure?' }  %>
+      <!-- Actions -->
+        <ul class="list-inline">
+          <li><%= link_to 'Remove from adoption', @gem_adoption, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to 'View adoption requests', :adoption_requests %></li>
+        </ul>
     <% else %>
-      <%= link_to 'Put for adoption', new_gems_adoption_path(id: @ruby_gem.id), :class => "btn btn-primary" %>
+      <%= link_to 'Put up for adoption', new_gems_adoption_path(id: @ruby_gem.id), class: "btn btn-primary" %>
     <% end %>
   <% else %>
-    <% if @gem_adoption && @adoption_request.nil? %>
-      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), :class => "btn btn-primary" %>
+    <% if @adoption_request %>
+      <!-- TODO: Button to cancel adoption request -->
+      <p>You are waiting response about adopting this gem</p>
     <% else %>
-      You are waiting response about adopt this gem
+      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), class: "btn btn-primary" %>
     <% end %>
   <% end %>
-</p>
-
-<p><%= link_to 'Back', gems_path %></p>
+<% else %>
+  <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), class: "btn btn-primary" %>
+<% end %>

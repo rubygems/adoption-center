@@ -3,6 +3,7 @@ class SiteController < ApplicationController
   end
 
   def search_gems
-  	@gems_adoptions = GemsAdoption.search(params[:search])
+    @query = params[:search]
+    @gems_adoptions = GemsAdoption.search(@query)
   end
 end

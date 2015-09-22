@@ -1,14 +1,16 @@
 <h1>Results</h1>
-<%= render :partial => 'search_gems' %>
-<br>
-<% if @gems_adoptions %>
-  <ul>
+<%= render :partial => 'search_gems' %><br>
+
+<h2><%= pluralize(@gems_adoptions.count, 'result') %> for <em><%= @query %></em></h2>
+<% if @gems_adoptions.count > 0 %>
+  <br>
+  <dl>
   <% @gems_adoptions.each do |gem_adoption| %>
-    <li>
-      <%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem), id: "gem_name" %>
-    </li>
+    <dt class="gem-name"><h4><b><%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem) %></b></h4></dt>
+    <dd class="text-muted"><%= truncate(gem_adoption.ruby_gem.info, length: 140, omission: '...') %></dd>
+    <hr />
   <% end %>
-  </ul>
+  </dl>
 <% else %>
-  No hay resultados
+  <h3 class="text-muted">No gems found up for adoption</h3>
 <% end %>

@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def owns_gem?(rubygem)
     self.ruby_gems.exists?(rubygem)
   end
+
+  def rubygems_profile
+    "https://rubygems.org/profiles/#{username}"
+  end
 end

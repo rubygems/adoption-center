@@ -1,23 +1,20 @@
 <% provide(:title, "My Gems") %>
-<h1>Dashboard</h1>
+<h1><%= current_user.username %></h1>
+<h3 class="text-muted"><%= pluralize(@ruby_gems.count, 'Gem') %></h3>
+<hr>
 
 <% if @ruby_gems.empty? %>
-  You haven't pushed any gems yet.
+  <h3 class="text-muted">You haven't pushed any gems yet.</h3>
 <% else %>
-  <table>
-    <thead>
-      <tr>
-        <th>Gem</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @ruby_gems.each do |g| %>
-        <tr>
-          <td><%= g.name %></td>
-          <td><%= link_to 'Show', gem_path(g) %></td>
-        </tr>
+  <% @ruby_gems.each do |ruby_gem| %>
+    <div class="clearfix">
+      <h4 class="pull-left"><%= link_to ruby_gem.name, gem_path(ruby_gem) %></h4>
+      <% if ruby_gem.gems_adoption %>
+        <%= link_to 'Remove from adoption', ruby_gem.gems_adoption, method: :delete, class: 'btn btn-danger pull-right', data: { confirm: 'Are you sure?' } %>
+      <% else %>
+        <%= link_to 'Put up for adoption', new_gems_adoption_path(id: ruby_gem.id), class: 'btn btn-primary pull-right' %>
       <% end %>
-  </tbody>
-  </table>
+    </div>
+    <hr>
+  <% end %>
 <% end %>

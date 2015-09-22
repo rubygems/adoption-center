@@ -7,7 +7,7 @@ class SiteControllerTest < ActionController::TestCase
 
     assert_template :search_gems
     assert_select "title", "| RubyGems AdoptionCenter"
-    assert_select "#gem_name", "pg"
+    assert_select ".gem-name", "pg"
     assert_response :success
   end
 end
