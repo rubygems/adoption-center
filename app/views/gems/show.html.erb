@@ -1,7 +1,7 @@
 <% provide(:title, "Gem Information") %>
 <h1 class="gem-name"><%= @ruby_gem.name %></h1>
 <p class="gem-info"><%= @ruby_gem.info %></p>
-<p><%= link_to "View on RubyGems", @ruby_gem.project_uri %></p>
+<p><%= link_to "View in RubyGems", @ruby_gem.project_uri, target: 'blank' %></p>
 <hr>
 
 <% if @gem_adoption %>
@@ -29,7 +29,7 @@
   <% else %>
     <% if @adoption_request %>
       <!-- TODO: Button to cancel adoption request -->
-      <p>You are waiting response about adopting this gem</p>
+      <p>You are waiting for a response to your adoption request</p>
     <% else %>
       <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), class: "btn btn-primary" %>
     <% end %>
