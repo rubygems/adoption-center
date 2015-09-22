@@ -36,19 +36,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  #letter opener gem
+  config.action_mailer.delivery_method = :letter_opener
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  #Mandrill configuration
-  ActionMailer::Base.smtp_settings = {
-  address: "smtp.mandrillapp.com",
-  port: 587,
-  enable_starttls_auto: true,
-  user_name: 'teambinaryrg@gmail.com',
-  password: '6l_WoTv4hMqqCokMux24ww',
-  authentication: "login"
-  }
-
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.default charset: "utf-8"
 end
