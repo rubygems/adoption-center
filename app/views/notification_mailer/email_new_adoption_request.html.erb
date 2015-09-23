@@ -1,0 +1,7 @@
+<h1>Hi <%= @gem_owner.username %>,</h1>
+<br>
+<div>
+  <p>You have received a new adoption request for the <b><%= @gem.name %></b> gem by <%= link_to @user.username, @user.rubygems_profile %>.</p>
+  <p>Best regards,</p>
+  <p>RubyGems Adoption Center.</p>
+</div>
