@@ -1,4 +1,7 @@
 <h1>Hi <%= @user.username %></h1>
-<p>Your adoption request of the gem <%= link_to @gem.name, gem_path(@gem) %> has been accepted %>.</p>
-<p>Best regards,</p>
-<p>RubyGems Adoption Center.</p>
+<br>
+<div>
+  <p>Your adoption request of the gem <b><%= @gem.name %></b> in the Rubygems Adoption Center has been accepted.</p>
+  <p>Best regards,</p>
+  <p>RubyGems Adoption Center.</p>
+</div>

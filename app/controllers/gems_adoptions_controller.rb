@@ -24,6 +24,8 @@ class GemsAdoptionsController < ApplicationController
     adoption_request = AdoptionRequest.find(params[:id])
     gems_adoption = adoption_request.gems_adoption
     if gems_adoption.update(status: 'closed') && GemOwnershipTransfer.create(old_user: current_user, new_user_id: adoption_request.user_id, ruby_gem_id: gems_adoption.ruby_gem_id)
+      NotificationMailer.email_adoption_request_accepted(adoption_request.user_id, adoption_request.gems_adoption.ruby_gem).deliver_now
+      NotificationMailer.email_adoption_request_rejected(adoption_request.user_id, adoption_request.gems_adoption).deliver_now
       flash[:success] = "Gem ownership transferred"
       redirect_to gem_path(gems_adoption.ruby_gem)
     else
