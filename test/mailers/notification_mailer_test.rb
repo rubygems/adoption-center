@@ -11,7 +11,7 @@ class NotificationMailerTest < ActionMailer::TestCase
   end
 
   test "adoption request accepted" do
-    email = NotificationMailer.email_adoption_request_accepted(users(:alfonso), ruby_gems(:pg)).deliver_now
+    email = NotificationMailer.email_adoption_request_status(users(:alfonso), ruby_gems(:pg), "Accepted").deliver_now
     assert_not ActionMailer::Base.deliveries.empty?
 
     assert_equal ['ammancilla@gmail.com'], email.to
@@ -19,7 +19,7 @@ class NotificationMailerTest < ActionMailer::TestCase
   end
 
   test "adoption request rejected" do
-    email = NotificationMailer.email_adoption_request_rejected(users(:alfonso), gems_adoptions(:pg)).deliver_now
+    email = NotificationMailer.email_adoption_request_status(users(:sebastian), ruby_gems(:pg), "Rejected").deliver_now
     assert_not ActionMailer::Base.deliveries.empty?
 
     assert_equal ['sebasoga@gmail.com'], email.to

@@ -24,8 +24,8 @@ class GemsAdoptionsController < ApplicationController
     adoption_request = AdoptionRequest.find(params[:id])
     gems_adoption = adoption_request.gems_adoption
     if gems_adoption.update(status: 'closed') && GemOwnershipTransfer.create(old_user: current_user, new_user_id: adoption_request.user_id, ruby_gem_id: gems_adoption.ruby_gem_id)
-      NotificationMailer.email_adoption_request_accepted(adoption_request.user_id, adoption_request.gems_adoption.ruby_gem).deliver_now
-      NotificationMailer.email_adoption_request_rejected(adoption_request.user_id, adoption_request.gems_adoption).deliver_now
+      deliver_adoption_request_accepted_email(adoption_request)
+      deliver_adoption_request_rejected_email(adoption_request)
       flash[:success] = "Gem ownership transferred"
       redirect_to gem_path(gems_adoption.ruby_gem)
     else
@@ -44,5 +44,16 @@ class GemsAdoptionsController < ApplicationController
 
   def gems_adoption_params
     params.require(:gems_adoption).permit(:ruby_gem_id, :description)
+  end
+
+  def deliver_adoption_request_accepted_email(adoption_request)
+    NotificationMailer.email_adoption_request_status(adoption_request.user, adoption_request.gems_adoption.ruby_gem, "Accepted").deliver_now
+  end
+
+  def deliver_adoption_request_rejected_email(adoption_request)
+    rejected_users = AdoptionRequest.where(gems_adoption_id: adoption_request.gems_adoption).where.not(user_id: adoption_request.user)
+    rejected_users.each do |rejected_user|
+      NotificationMailer.email_adoption_request_status(rejected_user.user, adoption_request.gems_adoption.ruby_gem, "Rejected").deliver_now
+    end
   end
 end
