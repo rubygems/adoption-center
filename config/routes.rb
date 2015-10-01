@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'site#index'
-  get '/auth/:provider/callback'   => 'sessions#create', :as => :omniauth_callback
+  get '/auth'   => 'sessions#create'
+  get '/callback'   => 'sessions#create', :as => :callback
   get "/signout" => "sessions#destroy", :as => :signout
   get "/search" => "site#search_gems", :as => :search
   resources :gems, only: [:index, :show]

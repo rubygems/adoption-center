@@ -198,6 +198,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.3)
   letter_opener
+  oauth2
   omniauth-github!
   pg
   rails (= 4.2.2)
