@@ -4,14 +4,20 @@ gem 'rails', '4.2.2'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
+  gem 'sqlite3'
   gem 'spring'
   gem 'letter_opener'
   gem 'dotenv-rails'
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Assets
@@ -21,7 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 # Others
-gem 'pg'
+#
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
