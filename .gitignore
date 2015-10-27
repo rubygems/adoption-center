@@ -8,3 +8,6 @@
 .DS_Store
 # Ignore database config
 config/database.yml
+
+# Ignore sqlite3 databases
+**/*.sqlite
