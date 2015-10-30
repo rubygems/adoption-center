@@ -4,6 +4,8 @@
 
 Gem adoption center
 
+For background and further discussion, see [A RubyGems Adoption Center](http://www.benjaminfleischer.com/2014/08/17/rubygems-adoption-center/).
+
 ## License
 Adoption Center uses the MIT license. Please check the [LICENSE]
 (https://github.com/rails-girls-summer-of-code/Team-Binary-2015/blob/master/LICENSE)
