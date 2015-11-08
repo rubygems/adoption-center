@@ -6,8 +6,13 @@
 !/log/.keep
 /tmp
 .DS_Store
+
 # Ignore database config
 config/database.yml
 
 # Ignore sqlite3 databases
-**/*.sqlite
+**/*.sqlite*
+
+# Ignore and env files
+.env
+
