@@ -13,6 +13,7 @@ config/database.yml
 # Ignore sqlite3 databases
 **/*.sqlite*
 
-# Ignore and env files
+# Ignore Guard and dotenv files
+Guardfile
 .env
 

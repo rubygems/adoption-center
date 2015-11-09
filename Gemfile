@@ -10,9 +10,13 @@ group :development, :test do
 end
 
 group :development do
-  gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'bullet'
+  gem 'guard'
+  gem 'guard-bundler', require: false
+  gem 'guard-minitest', require: false
+  gem 'guard-rails', require: false
   gem 'letter_opener'
   gem 'quiet_assets'
 end
