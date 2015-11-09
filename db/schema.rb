@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150826205450) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "adoption_requests", force: :cascade do |t|
     t.integer  "gems_adoption_id", null: false
     t.integer  "user_id",          null: false
@@ -32,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150826205450) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "gem_ownership_transfers", ["new_user_id"], name: "index_gem_ownership_transfers_on_new_user_id", using: :btree
-  add_index "gem_ownership_transfers", ["old_user_id"], name: "index_gem_ownership_transfers_on_old_user_id", using: :btree
-  add_index "gem_ownership_transfers", ["ruby_gem_id"], name: "index_gem_ownership_transfers_on_ruby_gem_id", using: :btree
+  add_index "gem_ownership_transfers", ["new_user_id"], name: "index_gem_ownership_transfers_on_new_user_id"
+  add_index "gem_ownership_transfers", ["old_user_id"], name: "index_gem_ownership_transfers_on_old_user_id"
+  add_index "gem_ownership_transfers", ["ruby_gem_id"], name: "index_gem_ownership_transfers_on_ruby_gem_id"
 
   create_table "gems_adoptions", force: :cascade do |t|
     t.integer  "user_id",                 null: false
@@ -45,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150826205450) do
     t.integer  "status",      default: 0
   end
 
-  add_index "gems_adoptions", ["ruby_gem_id"], name: "index_gems_adoptions_on_ruby_gem_id", using: :btree
-  add_index "gems_adoptions", ["user_id"], name: "index_gems_adoptions_on_user_id", using: :btree
+  add_index "gems_adoptions", ["ruby_gem_id"], name: "index_gems_adoptions_on_ruby_gem_id"
+  add_index "gems_adoptions", ["user_id"], name: "index_gems_adoptions_on_user_id"
 
   create_table "ruby_gems", force: :cascade do |t|
     t.string   "name",        null: false
@@ -56,15 +53,15 @@ ActiveRecord::Schema.define(version: 20150826205450) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "ruby_gems", ["name"], name: "index_ruby_gems_on_name", using: :btree
+  add_index "ruby_gems", ["name"], name: "index_ruby_gems_on_name"
 
   create_table "ruby_gems_users", id: false, force: :cascade do |t|
     t.integer "ruby_gem_id"
     t.integer "user_id"
   end
 
-  add_index "ruby_gems_users", ["ruby_gem_id"], name: "index_ruby_gems_users_on_ruby_gem_id", using: :btree
-  add_index "ruby_gems_users", ["user_id"], name: "index_ruby_gems_users_on_user_id", using: :btree
+  add_index "ruby_gems_users", ["ruby_gem_id"], name: "index_ruby_gems_users_on_ruby_gem_id"
+  add_index "ruby_gems_users", ["user_id"], name: "index_ruby_gems_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   null: false
@@ -74,6 +71,4 @@ ActiveRecord::Schema.define(version: 20150826205450) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "gem_ownership_transfers", "users", column: "new_user_id"
-  add_foreign_key "gem_ownership_transfers", "users", column: "old_user_id"
 end

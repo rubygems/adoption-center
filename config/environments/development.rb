@@ -36,9 +36,17 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  #letter opener gem
-  config.action_mailer.delivery_method = :letter_opener
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Deliver and open mails using letter_opener
+  config.action_mailer.delivery_method = :letter_opener
+
+  # Detects N + 1 query using bullet
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+  end
 end
