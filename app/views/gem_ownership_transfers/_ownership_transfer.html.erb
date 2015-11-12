@@ -1,0 +1,4 @@
+<div class="ownership_transfer">
+  <b><%= link_to transfer.old_user.username, transfer.old_user.rubygems_profile, target: 'blank' %></b> transferred <b><%= link_to transfer.ruby_gem.name, transfer.ruby_gem.project_uri, target: 'blank' %></b> to <b><%= link_to transfer.new_user.username, transfer.new_user.rubygems_profile, target: 'blank' %></b> on <b><%= l(transfer.created_at, format: "%B %d, %Y.").capitalize %></b>
+</div>
+<!-- TODO: Give proper style to an ownership_transfer -->

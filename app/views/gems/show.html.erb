@@ -1,39 +1,50 @@
-<% provide(:title, "Gem Information") %>
-<h1 class="gem-name"><%= @ruby_gem.name %></h1>
-<p class="gem-info"><%= @ruby_gem.info %></p>
-<p><%= link_to "View in RubyGems", @ruby_gem.project_uri, target: 'blank' %></p>
-<hr>
+<% page_title! "Gem #{@ruby_gem.name}" %>
 
-<% if @gem_adoption %>
-  <h3 class="text-muted">About the adoption</h3>
-  <% if @gem_adoption.description? %>
-    <blockquote>
-      <p><%= @gem_adoption.description %></p>
-    </blockquote>
-  <% end %>
-  <p><b><%= link_to @gem_adoption.user.username, @gem_adoption.user.rubygems_profile, target: 'blank' %></b> put this gem up for adoption on <b><%= l(@gem_adoption.created_at, format: "%B %d, %Y.").capitalize %></b></p>
-  <hr>
-<% end %>
+<div class="l-overflow">
+  <!-- Gem Information / Left container -->
+  <div class="l-colspan--l colspan--l--has-border">
+    <div class="gem__intro">
+      <div id="markup" class="gem__desc">
+        <span> <%= @ruby_gem.info %></span>
+        <%= link_to "Read more", @ruby_gem.project_uri, target: 'blank' %>.
+      </div>
+    </div>
 
-<% if logged_in? %>
-  <% if current_user.owns_gem?(@ruby_gem) %>
-    <% if @gem_adoption %>
-      <!-- Actions -->
-        <ul class="list-inline">
-          <li><%= link_to 'Remove from adoption', @gem_adoption, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></li>
-          <li><%= link_to 'View adoption requests', :adoption_requests %></li>
-        </ul>
-    <% else %>
-      <%= link_to 'Put up for adoption', new_gems_adoption_path(id: @ruby_gem.id), class: "btn btn-primary" %>
-    <% end %>
-  <% else %>
-    <% if @adoption_request %>
-      <!-- TODO: Button to cancel adoption request -->
-      <p>You are waiting for a response to your adoption request</p>
-    <% else %>
-      <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-<% else %>
-  <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gem_adoption.id), class: "btn btn-primary" %>
-<% end %>
+    <div class="">
+      <h3 class="t-list__heading">About the adoption:</h3><br>
+      <div class="gem__desc">
+        <% if @gems_adoption.description.present? %>
+          <p><%= @gems_adoption.description %></p><br>
+        <% end %>
+        <p>
+          <b><%= link_to @adoption_owner.username, @adoption_owner.rubygems_profile, target: 'blank' %></b> put this gem up for adoption on <b><%= l(@gems_adoption.created_at, format: "%B %d, %Y.").capitalize %></b>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions / Right container -->
+  <div class="gem__aside l-col--r--pad">
+    <div class="gem__downloads-wrap">
+      <% if logged_in? %>
+        <% if current_user.owns_gem?(@ruby_gem) %>
+          <% if @gems_adoption %>
+              <%= link_to 'Remove from adoption', @gems_adoption, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'View adoption requests', :adoption_requests %>
+          <% else %>
+            <%= link_to 'Put up for adoption', new_gems_adoption_path(id: @ruby_gem.id) %>
+          <% end %>
+        <% else %>
+          <% if @adoption_request %>
+            <!-- TODO: Button to cancel adoption request -->
+            <p>You are waiting for a response to your adoption request</p>
+          <% else %>
+            <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gems_adoption.id) %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Adopt this gem', new_adoption_request_path(id: @gems_adoption.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>

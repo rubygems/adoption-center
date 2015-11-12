@@ -1,42 +1,158 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title><%= yield(:title) %> | RubyGems AdoptionCenter</title>
-    <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><%= link_to 'Gems', :gems_adoptions %></li>
-            <li role="presentation"><%= link_to 'Recent Activity', :gem_ownership_transfers %></li>
-            <% if logged_in? %>
-              <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a tabindex="-1" href="#"><%= link_to 'Dashboard', :gems %></a></li>
-                  <li><a tabindex="-1" href="#"><%= link_to "Adoption requests", :adoption_requests %></a></li>
-                  <li class="divider"></li>
-                  <li><a tabindex="-1" href="#"><%= link_to "Sign out", :signout %></a></li>
-                </ul>
-              </li>
-            <% else %>
-              <li role="presentation"><%= link_to 'Sign in with Github', '/auth/github' %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <h3 class="text-muted"><%= link_to 'RubyGems Adoption Center', :root %></h3>
-      </div>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-      <% end %>
-      <%= yield %>
+    <title><%= page_title format: ':title | RubyGems Adoption Center' %> </title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+    <meta name="google-site-verification" content="AuesbWQ9MCDMmC1lbDlw25RJzyqWOcDYpuaCjgPxEZY" />
+    <link rel="apple-touch-icon" href="/touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/touch-icon-iphone4.png" />
+    <link rel="fluid-icon" href="/fluid-icon.png"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//use.typekit.net/omu5dik.js" type="text/javascript"></script>
+    <script>
+      try { Typekit.load(); } catch(e) { }
+    </script>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tag %>
 
-    </div>
+    <%= yield :head %>
+  </head>
+
+  <body class="<%= 'body--index' if request.path_info == '/' %>">
+    <header class="header <%= 'header--interior' if request.path_info != '/' %>">
+      <div class="l-wrap--header">
+        <%= link_to(:root, title: 'RubyGems Adoption Center', class: 'header__logo-wrap') do %>
+          <span class="header__logo" data-icon="⬡">⬢</span>
+          <span class="t-hidden">RubyGems Adoption Center</span>
+        <% end %>
+        <a class="header__club-sandwich" href="#">
+          <span class="t-hidden">Navigation menu</span>
+        </a>
+
+        <div class="header__nav-links-wrap">
+          <% if request.path_info == "/" %>
+            <%= form_tag search_url, :id => "main-search", :class => "header__search-wrap--home", :method => :get do %>
+              <%= search_field_tag :query, params[:query], :placeholder => "Search Gems&hellip;".html_safe, :class => "header__search" %>
+              <%= submit_tag '⌕', :id => 'search_submit', :name => nil, :class => "header__search__icon" %>
+            <% end %>
+          <% else %>
+            <%= form_tag :search, id: 'man-search', class: 'header__search-wrap',method: :get do %>
+              <%= search_field_tag :query, params[:query], placeholder: 'Find Gems...', class: 'header__search' %>
+              <%= submit_tag '⌕', id: 'search_submit', name: nil, class: 'home__search__icon' %>
+            <% end %>
+          <% end %>
+
+          <nav class="header__nav-links">
+            <%= link_to 'Gems', :gems_adoptions, class: 'header__nav-link' %>
+            <%= link_to 'Recent Activity', :gem_ownership_transfers, class: 'header__nav-link' %>
+
+            <% if logged_in? %>
+              <%= link_to :gems, class: 'header__nav-link desktop__header__nav-link' do %>
+                  <%= current_user.username %>
+              <% end %>
+
+              <%= link_to '#', class: 'header__popup-link', data: { icon: '▼' } do %>
+                <span class="t-hidden">More items</span>
+              <% end %>
+
+              <div class="header__popup__nav-links">
+                <%= link_to 'Dashboard', :gems, class: 'header__nav-link' %>
+                <%= link_to 'Sign out', :sign_out, method: :delete, class: 'header__nav-link' %>
+              </div>
+            <% else %>
+              <%= link_to 'Sign in with Github', '/auth/github', class: 'header__nav-link' %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <% flash.each do |name, msg| %>
+      <div id="flash-border" class="flash">
+        <div class="flash-wrap">
+          <%= content_tag :div, id: "flash_#{name}", class: 'l-wrap--b' do %>
+            <span><%= msg %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <main class="<%= 'main--interior' if request.path_info != '/' %>">
+      <% if request.path_info != '/' %>
+        <div class="l-wrap--b">
+          <% if @title %>
+            <h1 class="t-display page__heading">
+              <%= link_to @title, '#', class: "t-link--black" %>
+
+              <% if @subtitle %>
+                <i class="page__subheading"><%= @subtitle.html_safe %></i>
+              <% end %>
+            </h1>
+          <% end %>
+          <%= yield :title %>
+          <%= yield %>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </main>
+
+    <footer class="footer">
+      <div class="l-wrap--footer">
+        <div class="l-overflow">
+          <div class="nav--v l-col--r--pad">
+            <%= link_to 'About', 'http://www.benjaminfleischer.com/2014/08/17/rubygems-adoption-center/', class: 'nav--v__link--footer', target: 'blank' %>
+            <%= link_to 'Source code', 'https://github.com/rubygems/adoption-center', class: 'nav--v__link--footer', target: 'blank' %>
+          </div>
+          <div class="l-colspan--l colspan--l--has-border">
+            <p class="footer__about">
+              RubyGems needs a way to mark a gem as "maintainer needed" or "someone please take this gem over". This project would drive the creation of an "Adoption Center" where people could list gems that want a maintainer/someone new to help fix issues, cut releases, etc, and then assist in the handoff of the gem.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__sponsors-wrap">
+        <div class="footer__sponsors">
+          <a class="footer__sponsor" href="http://rubycentral.org/" target="_blank">
+            <%= t("layouts.application.footer.supported_by") %>
+            <span class="t-hidden">Ruby Central</span>
+          </a>
+          <a class="footer__sponsor" href="https://www.bluebox.net/" target="_blank">
+            <%= t("layouts.application.footer.hosted_by") %>
+            <span class="t-hidden">Blue Box</span>
+          </a>
+          <a class="footer__sponsor" href="https://dockyard.com/" target="_blank">
+            <%= t("layouts.application.footer.designed_by") %>
+            <span class="t-hidden">DockYard</span>
+          </a>
+          <a class="footer__sponsor" href="https://dnsimple.com/" target="_blank">
+            <%= t("layouts.application.footer.resolved_with") %>
+            <span class="t-hidden">DNSimple</span>
+          </a>
+          <a class="footer__sponsor" href="https://newrelic.com/" target="_blank">
+            <%= t("layouts.application.footer.optimized_by") %>
+            <span class="t-hidden">New Relic</span>
+          </a>
+          <a class="footer__sponsor" href="http://get.gaug.es/" target="_blank">
+            <%= t("layouts.application.footer.tracking_by") %>
+            <span class="t-hidden">Gauges</span>
+          </a>
+          <a class="footer__sponsor" href="https://www.runscope.com/" target="_blank">
+            <%= t("layouts.application.footer.monitored_by") %>
+            <span class="t-hidden">Runscope</span>
+          </a>
+          <a class="footer__sponsor" href="https://www.fastly.com/" target="_blank">
+            <%= t("layouts.application.footer.gems_served_by") %>
+            <span class="t-hidden">Fastly</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

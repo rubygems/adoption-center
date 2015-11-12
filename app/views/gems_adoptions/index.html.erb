@@ -1,13 +1,12 @@
-<% provide(:title, "Gems up for Adoption") %>
-<h1>Gems up for Adoption</h1><br>
+<% page_title! 'Gems up for Adoption' %>
 
-<dl>
-  <% @gems_adoptions.each do |gem_adoption| %>
-    <dt class="gem-name"><h4><b><%= link_to gem_adoption.ruby_gem.name, gem_path(gem_adoption.ruby_gem) %></b></h4></dt>
-    <dd class="text-muted gem-info"><%= truncate(gem_adoption.ruby_gem.info, length: 140, omission: '...') %></dd>
-    <hr>
-  <% end %>
-</dl>
+<header class="gems__header">
+  <p class="gems__meter">
+    <%= page_entries_info @gems_adoptions, entry_name: 'gem' %>
+  </p>
+</header>
 
-<%= paginate @gems_adoptions %>
-<%= page_entries_info @gems_adoptions %>
+<% if @gems_adoptions.any? %>
+  <%= render @gems_adoptions %>
+  <%= paginate @gems_adoptions %>
+<% end %>

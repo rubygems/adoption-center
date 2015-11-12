@@ -10,9 +10,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'bullet'
+  gem 'faker'
   gem 'letter_opener'
   gem 'quiet_assets'
 end
@@ -38,5 +39,6 @@ gem 'gems', '~> 0.8.3'
 gem 'jquery-rails'
 gem 'kaminari', '~> 0.16.3'
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
+gem 'page_title_helper'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'

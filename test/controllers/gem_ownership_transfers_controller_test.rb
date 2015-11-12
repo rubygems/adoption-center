@@ -5,7 +5,7 @@ class GemOwnershipTransfersControllerTest < ActionController::TestCase
     get :index
 
     assert_template :index
-    assert_select "title", "Recent activity | RubyGems AdoptionCenter"
+    assert_select 'title', 'Recent activity | RubyGems Adoption Center'
     assert_response :success
   end
 

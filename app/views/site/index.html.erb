@@ -1,6 +1,28 @@
-<% provide(:title, "Home") %>
-<div class="jumbotron">
-  <h1>Adopt a gem</h1>
-  <p class="lead">RubyGems needs a way to mark a gem as "maintainer needed" or "someone please take this gem over". This project would drive the creation of an "Adoption Center" where people could list gems that want a maintainer/someone new to help fix issues, cut releases, etc, and then assist in the handoff of the gem.</p>
-  <%= render :partial => 'search_gems' %>
+<% page_title! 'Home' %>
+
+<!-- Headlines -->
+<br>
+<h1 align="center" class="" style="color: white;"><strong>RubyGems Adoption Center</strong> 
+<h1 class="home__heading">Adopt and help others maintaining Gems</h1>
+<div class="home__image-wrap">
+  <div class="home__image"></div>
+</div>
+
+<!-- Main search form -->
+<div class="home__search-wrap">
+  <%= form_tag :search, id: 'man-search', method: :get do %>
+    <%= search_field_tag :query, params[:query], placeholder: 'Find Gems...', autofocus: current_page?(root_url), id: 'home_query', class: 'home__search' %>
+    <%= submit_tag '⌕', id: 'search_submit', name: nil, class: 'home__search__icon' %>
+  <% end %>
+</div>
+
+<!-- General information -->
+<div class="home__cta-wrap">
+  <% if @gems_adoption_count %>
+    <h2 class="home__downloads">
+      <p><%= number_with_delimiter(@gems_adoption_count) %></p>
+      <span class="home__downloads__desc">Gems up for adoption</span>
+    </h2>
+  <% end %>
+  <%= link_to 'Sign in with Github', '/auth/github', class: "home__join #{@gems_adoption_count.nil? ? 'no-download-count' : ''}", data: { icon: '>' } %>
 </div>

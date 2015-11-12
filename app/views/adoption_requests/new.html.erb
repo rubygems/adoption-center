@@ -1,4 +1,5 @@
-<% provide(:title, "Adoption Request Form") %>
+<% page_title! 'Adoption Request Form' %>
+
 <%= form_for @adoption_request do |f| %>
   <h1><%= @gem_adoption.ruby_gem.name %></h1>
   <% if @adoption_request.errors.any? %>
