@@ -9,7 +9,7 @@ class AdoptionRequestsControllerTest < ActionController::TestCase
     get :new, id: 1
 
     assert_template :new
-    assert_select "title", "Adoption Request Form | RubyGems AdoptionCenter"
+    assert_select "title", "Adoption Request Form | RubyGems Adoption Center"
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class AdoptionRequestsControllerTest < ActionController::TestCase
     get :index
 
     assert_template :index
-    assert_select "title", "Adoptions Requests | RubyGems AdoptionCenter"
+    assert_select "title", "Adoptions Requests | RubyGems Adoption Center"
     assert_select ".gem-name", "pg"
     assert_response :success
   end

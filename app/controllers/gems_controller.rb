@@ -7,9 +7,11 @@ class GemsController < ApplicationController
 
   def show
     @ruby_gem = RubyGem.find(params[:id])
-    @gem_adoption = @ruby_gem.gems_adoption
-    if @gem_adoption && logged_in?
-      @adoption_request =  current_user.adoption_requests.find_by(gems_adoption_id: @gem_adoption.id)
+    @gems_adoption = @ruby_gem.gems_adoption
+    @adoption_owner = @gems_adoption.user
+    @title = @ruby_gem.name
+    if @gems_adoption && logged_in?
+      @adoption_request =  current_user.adoption_requests.find_by_gems_adoption_id(@gems_adoption.id)
     end
   end
 end

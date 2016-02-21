@@ -1,15 +1,12 @@
-<% provide(:title, "Recent activity") %>
-<h1>Recent activity</h1><br>
-<ul class="list-unstyled">
-  <% @ownership_transfers.each do |transfer| %>
-    <li>
-      <p>
-        <b><%= link_to transfer.old_user.username, transfer.old_user.rubygems_profile, target: 'blank' %></b> transferred <b><%= link_to transfer.ruby_gem.name, transfer.ruby_gem.project_uri, target: 'blank' %></b> to <b><%= link_to transfer.new_user.username, transfer.new_user.rubygems_profile, target: 'blank' %></b> on <b><%= l(transfer.created_at, format: "%B %d, %Y.").capitalize %></b>
-      </p>
-      <hr>
-    </li>
-  <% end %>
-</ul>
+<% page_title! 'Recent activity' %>
 
-<%= paginate @ownership_transfers %>
-<%= page_entries_info @ownership_transfers %>
+<header class="gems__header">
+  <p class="gems__meter">
+    <%= page_entries_info @ownership_transfers, entry_name: 'transaction' %>
+  </p>
+</header>
+
+<% if @ownership_transfers.any? %>
+  <%= render @ownership_transfers %>
+  <%= paginate @ownership_transfers %>
+<% end %>

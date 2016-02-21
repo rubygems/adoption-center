@@ -1,0 +1,8 @@
+<%= link_to gem_path(gems_adoption.ruby_gem), class: 'gems__gem' do %>
+  <div class="gems__gem__info">
+    <h2 class="gems__gem__name">
+      <%= gems_adoption.ruby_gem.name %>
+    </h2>
+    <p class="gems__gem__desc t-text"><%= truncate(gems_adoption.ruby_gem.info, length: 140, omission: '...') %></p>
+  </div>
+<% end %>

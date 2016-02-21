@@ -2,7 +2,8 @@ class GemsAdoptionsController < ApplicationController
   before_action :require_login, except: :index
 
   def index
-    @gems_adoptions = GemsAdoption.page(params[:page])
+    @title = 'Gems up for adoption'
+    @gems_adoptions = GemsAdoption.includes(:ruby_gem).page(params[:page])
   end
 
   def new

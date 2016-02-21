@@ -1,0 +1,88 @@
+.home__join, .form__submit {
+  -webkit-appearance: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-family: "aktiv-grotesk-std", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.25s;
+  transition-property: border-color, background-color; }
+@-moz-document url-prefix() {
+  .home__join, .form__submit {
+    padding-top: 12px;
+    padding-bottom: 8px; } }
+
+.home__join:before {
+  position: absolute;
+  right: 18px;
+  line-height: 22px; }
+@-moz-document url-prefix() {
+  .home__join:before {
+    line-height: 16px; } }
+.home__join:focus:before, .home__join:hover:before {
+  animation: arrow .75s infinite; }
+@-ms-keyframes arrow {
+  50% {
+    transform: translateX(3px);
+    animation-timing-function: ease-in-out; } }
+@keyframes arrow {
+  50% {
+    transform: translateX(3px);
+    animation-timing-function: ease-in-out; } }
+
+.home__join {
+  padding-left: 22px;
+  width: 250px;
+  background-color: white;
+  color: #e9573f; }
+  @media (max-width: 519px) {
+    .home__join {
+      margin-right: auto;
+      margin-left: auto; } }
+  @media (min-width: 520px) {
+    .home__join {
+      float: right; }
+    .home__join.no-download-count {
+      float: none;
+      margin-right: auto;
+      margin-left: auto; } }
+
+.form__submit {
+  margin-top: 42px;
+  margin-bottom: 150px;
+  width: 100%;
+  max-width: 320px;
+  background-color: #e9573f;
+  color: #ffffff;
+  transition-duration: 0.25s;
+  transition-property: opacity; }
+  .form__submit:hover {
+    opacity: .7; }
+
+.download__format {
+  margin-bottom: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  float: left;
+  width: 22%;
+  max-width: 320px;
+  border-radius: 20px;
+  background-color: #e9573f;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white !important;
+  letter-spacing: 1px;
+  transition-duration: 0.25s;
+  transition-property: opacity !important; }
+  .download__format:hover, .download__format:focus {
+    opacity: .7 !important; }
+  .download__format:not(:last-of-type) {
+    margin-right: 4%; }

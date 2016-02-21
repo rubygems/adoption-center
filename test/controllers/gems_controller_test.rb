@@ -9,17 +9,19 @@ class GemsControllerTest < ActionController::TestCase
     get :index
 
     assert_template :index
-    assert_select "title", "My Gems | RubyGems AdoptionCenter"
+    assert_select "title", "My Gems | RubyGems Adoption Center"
     assert_response :success
   end
 
   test "should get show" do
-    get :show, id: 1
+    ruby_gem = ruby_gems(:pg)
+
+    get :show, id: ruby_gem.id
 
     assert_template :show
-    assert_select "title", "Gem Information | RubyGems AdoptionCenter"
-    assert_select ".gem-name", "rails"
-    assert_select ".gem-info", "Full-stack web framework optimized for programmer happiness"
+    assert_select "title", "Gem #{ruby_gem.name} | RubyGems Adoption Center"
+    assert_select "h1.t-display.page__heading a", ruby_gem.name
+    assert_select "#markup span", "#{ruby_gem.info}"
     assert_response :success
   end
 end

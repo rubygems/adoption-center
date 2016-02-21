@@ -9,9 +9,9 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
     get :index
 
     assert_template :index
-    assert_select "title", "Gems up for Adoption | RubyGems AdoptionCenter"
-    assert_select ".gem-name", "pg"
-    assert_select ".gem-info", "Pg is the Ruby interface to the PostgreSQL"
+    assert_select "title", "Gems up for Adoption | RubyGems Adoption Center"
+    assert_select ".gems__gem__info:first-child .gems__gem__name", "pg"
+    assert_select ".gems__gem__info:first-child .gems__gem__desc", "Pg is the Ruby interface to the PostgreSQL"
     assert_response :success
   end
 
@@ -19,7 +19,7 @@ class GemsAdoptionsControllerTest < ActionController::TestCase
     get :new, id: 1
 
     assert_template :new
-    assert_select "title", "Adoption Form | RubyGems AdoptionCenter"
+    assert_select "title", "Adoption Form | RubyGems Adoption Center"
     assert_response :success
   end
 
