@@ -1,12 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "should not save user without token or username" do
-    user = User.new
-    user.save
-    assert_includes user.errors, :username
-    assert_includes user.errors, :token
-  end
+  should validate_presence_of :username
+  should validate_presence_of :token
 
   test "should store user ruby gems" do
     VCR.use_cassette("user gems") do
