@@ -21,6 +21,7 @@ end
 group :test do
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
+  gem 'shoulda', '~> 3.5'
 end
 
 group :production do
