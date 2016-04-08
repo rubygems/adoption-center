@@ -2,6 +2,13 @@ require 'test_helper'
 
 class SiteControllerTest < ActionController::TestCase
 
+  test "should show count" do
+    get :index
+    assert_template :index
+    assert_select '.gem__adoption__count', '1'
+    assert_response :success
+  end
+
   test "should get search" do
     get :search_gems, search: 'pg'
 
