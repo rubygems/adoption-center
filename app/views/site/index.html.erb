@@ -2,7 +2,7 @@
 
 <!-- Headlines -->
 <br>
-<h1 align="center" class="" style="color: white;"><strong>RubyGems Adoption Center</strong> 
+<h1 align="center" class="" style="color: white;"><strong>RubyGems Adoption Center</strong>
 <h1 class="home__heading">Adopt and help others maintaining Gems</h1>
 <div class="home__image-wrap">
   <div class="home__image"></div>
@@ -20,7 +20,7 @@
 <div class="home__cta-wrap">
   <% if @gems_adoption_count %>
     <h2 class="home__downloads">
-      <p><%= number_with_delimiter(@gems_adoption_count) %></p>
+      <p class="gem__adoption__count"><%= number_with_delimiter(@gems_adoption_count) %></p>
       <span class="home__downloads__desc">Gems up for adoption</span>
     </h2>
   <% end %>

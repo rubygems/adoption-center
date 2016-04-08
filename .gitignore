@@ -17,3 +17,5 @@ config/database.yml
 Guardfile
 .env
 
+# Ignore Simplecov output
+/coverage
