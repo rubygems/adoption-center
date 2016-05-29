@@ -2,6 +2,10 @@
 [![Build Status](https://travis-ci.org/rubygems/adoption-center.svg?branch=master)](https://travis-ci.org/rubygems/adoption-center)
 [![Code Climate](https://codeclimate.com/github/rubygems/adoption-center/badges/gpa.svg)](https://codeclimate.com/github/rubygems/adoption-center)
 
+#Status
+The RubyGems team is currently consigering rolling this functionality ino the main site, as discussed in this [issue](https://github.com/rubygems/rubygems.org/issues/725)
+
+
 ## Development
 
 Clone the repository
