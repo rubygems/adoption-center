@@ -1,3 +1,5 @@
+**We are archiving this repository. [Gem adoption](https://blog.rubygems.org/2022/01/19/rubygems-adoptions.html) was implemented in rubygems.org.**
+
 # RubyGems Adoption Center
 [![Build Status](https://travis-ci.org/rubygems/adoption-center.svg?branch=master)](https://travis-ci.org/rubygems/adoption-center)
 [![Code Climate](https://codeclimate.com/github/rubygems/adoption-center/badges/gpa.svg)](https://codeclimate.com/github/rubygems/adoption-center)
